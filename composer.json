@@ -1,0 +1,20 @@
+{
+  "name": "krubio/perfect_app_oop",
+  "description": "A perfect App in Php OOP",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Kevin Rubio",
+      "email": "krubio@galaxyinternet.us"
+    }
+  ],
+
+  "autoload": {
+    "psr-4": {
+      "PerfectApp\\": "vendor/krubio/perfect_app_oop/src/"
+    }
+  },
+  "require": {
+  }
+}
