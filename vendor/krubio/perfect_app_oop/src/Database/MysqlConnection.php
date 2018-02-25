@@ -1,5 +1,5 @@
 <?php
-//TODO: Does not handle connection errors
+
 namespace PerfectApp\Database;
 
 use PDO;
