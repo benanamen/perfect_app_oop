@@ -7,16 +7,24 @@
  * Last Modified <!--%TimeStamp%-->1/14/2017 9:03 PM<!---->
  */
 
+if (!defined('SECURE_PAGE'))
+{
+    die('<h1>Direct File Access Prohibited</h1>');
+}
+
 //------------------------------------------------------------------------
 // Restrict access to these files
 //------------------------------------------------------------------------
 
-// Specify some disallowed paths
+/**
+ * Specify disallowed paths
+ */
+
 $restricted_files = [
-    'header',
-    'footer',
-    'navbar',
-    'menu',
+      'header'
+    , 'footer'
+    , 'navbar'
+    , 'menu'
 ];
 
 //----------------------------------------------------------------------------------------
@@ -25,10 +33,8 @@ $restricted_files = [
 
 if (isset($_GET['p']))
 {
-
     $page = basename($_GET['p']);
 
-    // If it's not a disallowed path, and if the file exists
     if (!in_array($page, $restricted_files) && file_exists("./includes/$page.php"))
     {
         $include = "./includes/$page.php";

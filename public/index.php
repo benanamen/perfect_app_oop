@@ -6,7 +6,7 @@ session_start();
 // Allow direct access to this page
 //----------------------------------------------------------------------------------------
 
-define('securepage', true);
+define('SECURE_PAGE', true);
 
 //----------------------------------------------------------------------------------------
 // Redirect if not logged in

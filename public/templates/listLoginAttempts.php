@@ -31,17 +31,8 @@
 
         foreach ($stmt as $row)
         {
-            if ($row['login_status'] == 0)
-            {
-                $status = 'danger';
-                $message = 'Failed';
-            }
-
-            if ($row['login_status'] == 1)
-            {
-                $status = 'success';
-                $message = 'Success';
-            }
+            $status = $row['login_status'] == 0 ? 'danger' : 'success';
+            $message = $row['login_status'] == 0 ? 'Failed' : 'Success';
             ?>
             <tr>
                 <td><?= $row['login_username'] ?></td>

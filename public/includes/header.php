@@ -1,3 +1,9 @@
+<?php
+if (!defined('SECURE_PAGE'))
+{
+    die('<h1>Direct File Access Prohibited</h1>');
+}
+?>
 <!doctype html>
 
 <html lang="en">
@@ -20,9 +26,9 @@
     <script src="./js/dataTables.bootstrap4.min.js"></script>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#myDataTable').DataTable();
-        } );
+        });
     </script>
 
     <title></title>

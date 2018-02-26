@@ -1,4 +1,9 @@
 <?php
+if (!defined('SECURE_PAGE'))
+{
+    die('<h1>Direct File Access Prohibited</h1>');
+}
+
 /**
  * Displays Login Attempt Data
  */
@@ -12,7 +17,8 @@ use PerfectApp\Database\MysqlQuery;
 $db = new MysqlConnection();
 $pdo = $db->connect();
 
-if (!is_object($pdo)) {
+if (!is_object($pdo))
+{
     return false;
 }
 

@@ -33,23 +33,11 @@ function send_email($to, $subject, $email_body, $from)
  * @param $stmt
  */
 
-function show_debug_params(PDOStatement$stmt)
+function show_debug_params(PDOStatement $stmt)
 {
     echo '<div class="info">';
     echo $stmt->debugDumpParams();
     echo '</div>';
-}
-
-/**
- * Block direct file access (Not needed if includes outside root directory)
- */
-
-function secure_page()
-{
-    if (!defined('securepage'))
-    {
-        die('<h1>Direct File Access Prohibited</h1>');
-    }
 }
 
 /**
@@ -267,7 +255,10 @@ function show_form_errors($error)
 
 function trim_array($input)
 {
-    if (!is_array($input)) return trim($input);
+    if (!is_array($input))
+    {
+        return trim($input);
+    }
 
     return array_map('trim_array', $input);
 }

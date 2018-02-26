@@ -7,17 +7,17 @@
 // Block Direct Access
 //----------------------------------------------------------------------------------------
 
-if (!defined('securepage'))
+if (!defined('SECURE_PAGE'))
 {
     die('<h1>Direct File Access Prohibited</h1>');
 }
 ?>
 
 <div class="card border-primary mb-3" style="max-width: 15rem;">
+    <div class="card-header">
+        <img src="./images/default_profile.jpg" width="140" height="140" alt="Profile Image">
+    </div>
     <ul class="list-group list-group-flush">
-        <div class="card-header">
-            <img src="./images/default_profile.jpg" width="140" height="140" alt="Profile Image">
-        </div>
         <li class="list-group-item"><a href="<?= $_SERVER['SCRIPT_NAME'] ?>">Home</a></li>
 
         <li class="list-group-item"><a href="<?= $_SERVER['SCRIPT_NAME'] ?>?p=settings">Settings</a></li>

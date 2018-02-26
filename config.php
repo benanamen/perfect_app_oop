@@ -13,22 +13,10 @@
 namespace PerfectApp\Debug;
 
 //----------------------------------------------------------------------------------------
-// Options
+// Application Url
 //----------------------------------------------------------------------------------------
 
-// Full URL i.e.: http://www.example.com. Used in Email Confirmation/Password Reset email links
-if ($_SERVER['SERVER_NAME'] == 'localhost')
-{
-    define("APPLICATION_URL", 'http://localhost/perfect_app_oop/public');// No trailing slash
-}
-elseif (($_SERVER['SERVER_NAME'] == 'www.example.com'))
-{
-    define("APPLICATION_URL", 'http://example.com');
-}
-else
-{
-    define("APPLICATION_URL", 'http://perfect_app_oop.test');
-}
+define("APPLICATION_URL", "http://{$_SERVER['HTTP_HOST']}");
 
 //----------------------------------------------------------------------------------------
 // Set App Name & Admin Email
@@ -71,7 +59,7 @@ define("LOG_ERROR", true); // Log errors to file
 //----------------------------------------------------------------------------------------
 // Debugging
 //----------------------------------------------------------------------------------------
-define("DEBUG",false); // Toggle Debugging
+define("DEBUG", false); // Toggle Debugging
 
 define("SHOW_DEBUG_PARAMS", DEBUG); // Display Sql & Sql Parameters
 define("SHOW_SESSION_DATA", DEBUG); // Display Session Data
@@ -117,10 +105,6 @@ $error_handler->registerExceptionHandler();
 $error_handler->registerErrorHandler();
 $error_handler->registerShutdownFunction();*/
 
-/*spl_autoload_register(function ($class) {
-    include 'classes/' . $class . '.php';
-});*/
-
 require "vendor/autoload.php";
 
 if (DEBUG)
@@ -134,12 +118,9 @@ if (DEBUG)
         $varDumper->dump('COOKIE', $_COOKIE);
     }
 
-    if (SHOW_SESSION_DATA)
+    if (SHOW_SESSION_DATA && isset($_SESSION))
     {
-        if (isset($_SESSION))
-        {
-            $varDumper->dump('SESSION', $_SESSION);
-        }
+        $varDumper->dump('SESSION', $_SESSION);
     }
 
     if (SHOW_POST_DATA)

@@ -26,11 +26,7 @@ class MysqlQuery
      */
     public function __construct(PDO $database)
     {
-        try{
-            $this->database = $database;
-        }
-        catch(\PDOException $e){
-        }
+        $this->database = $database;
     }
 
     /**
@@ -39,6 +35,6 @@ class MysqlQuery
      */
     public function pdoQuery($sql)
     {
-      return $this->database->query($sql);
+        return $this->database->query($sql);
     }
 }
