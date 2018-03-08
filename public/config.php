@@ -93,7 +93,7 @@ define("ERROR_LOG_PATH", "..". DIRECTORY_SEPARATOR . "logs" . DIRECTORY_SEPARATO
 
 /** Required files. */
 require '../functions.php';
-require "../vendor/autoload.php";
+//require "../vendor/autoload.php";
 
 // Custom exception handler function (functions.php)
 set_exception_handler('custom_exception');

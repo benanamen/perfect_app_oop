@@ -8,19 +8,19 @@ if (!defined('SECURE_PAGE'))
  * Displays Login Attempt Data
  */
 
-use PerfectApp\Database\MysqlConnection;
-use PerfectApp\Database\MysqlQuery;
+//use PerfectApp\Database\MysqlConnection;
+//use PerfectApp\Database\MysqlQuery;
 
 //----------------------------------------------------------------------------------------
 // Create PDO DB Connection
 //----------------------------------------------------------------------------------------
-$db = new MysqlConnection();
-$pdo = $db->connect();
+/*$db = new MysqlConnection();
+$pdo = $db->connect();*/
 
-if (!is_object($pdo))
+/*if (!is_object($pdo))
 {
     return false;
-}
-
+}*/
+use PerfectApp\Database\MysqlQuery;
 $loginAttempts = new MysqlQuery($pdo);
 include './templates/listLoginAttempts.php';
