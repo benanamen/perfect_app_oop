@@ -1,8 +1,6 @@
 <?php
-//ob_start();
-//session_start();
-
-
+ob_start();
+session_start();
 
 //----------------------------------------------------------------------------------------
 // Allow direct access to this page

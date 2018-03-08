@@ -98,6 +98,20 @@ require "../vendor/autoload.php";
 // Custom exception handler function (functions.php)
 set_exception_handler('custom_exception');
 
+//----------------------------------------------------------------------------------------
+// Create PDO DB Connection
+//----------------------------------------------------------------------------------------
+
+use PerfectApp\Database\MysqlConnection;
+
+$db = new MysqlConnection();
+$pdo = $db->connect();
+
+if (!is_object($pdo))
+{
+    return false;
+}
+
 /*// Sentry Error Tracking
 require_once '../vendor/Autoload.php';
 $client = new Raven_Client('https://b770f71f9d7444339d3e236377ff8d79:8dd13a7685f44875b26ef720b6223dfa@sentry.io/135633');
