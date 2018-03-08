@@ -32,10 +32,6 @@ if (!defined('SECURE_PAGE'))
         <td><?= date_default_timezone_get() ?></td>
     </tr>
     <tr>
-        <td>Application Url</td>
-        <td><?= APPLICATION_URL ?></td>
-    </tr>
-    <tr>
         <td>Admin Email From</td>
         <td><?= ADMIN_EMAIL_FROM ?></td>
     </tr>
@@ -59,7 +55,11 @@ if (!defined('SECURE_PAGE'))
         </thead>
         <tbody>
         <tr>
-            <td>Real Path</td>
+            <td>Application Url</td>
+            <td><?= APPLICATION_URL ?></td>
+        </tr>
+        <tr>
+            <td>Absolute Path</td>
             <td><?= ABSPATH ?></td>
         </tr>
         <tr>

@@ -20,11 +20,23 @@ class ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850
         ),
     );
 
+    public static $classMap = array (
+        'PerfectApp\\Database\\DatabaseConnection' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Database/DatabaseConnection.php',
+        'PerfectApp\\Database\\MysqlConnection' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Database/MysqlConnection.php',
+        'PerfectApp\\Database\\MysqlQuery' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Database/MysqlQuery.php',
+        'PerfectApp\\Debug\\HTMLVarDumper' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Debug/HTMLVarDumper.php',
+        'PerfectApp\\Debug\\VarDumper' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Debug/VarDumper.php',
+        'PerfectApp\\Logging\\LoginLogger' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Logging/LoginLogger.php',
+        'PerfectApp\\Logging\\SQLLoginAttemptsLog' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Logging/SQLLoginAttemptsLog.php',
+        'PerfectApp\\Utilities\\DisplayActionMessage' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Utilitys/DisplayActionMessage.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850::$classMap;
 
         }, null, ClassLoader::class);
     }

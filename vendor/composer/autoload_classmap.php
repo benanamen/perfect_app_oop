@@ -6,4 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'PerfectApp\\Database\\DatabaseConnection' => $vendorDir . '/krubio/perfect_app_oop/src/Database/DatabaseConnection.php',
+    'PerfectApp\\Database\\MysqlConnection' => $vendorDir . '/krubio/perfect_app_oop/src/Database/MysqlConnection.php',
+    'PerfectApp\\Database\\MysqlQuery' => $vendorDir . '/krubio/perfect_app_oop/src/Database/MysqlQuery.php',
+    'PerfectApp\\Debug\\HTMLVarDumper' => $vendorDir . '/krubio/perfect_app_oop/src/Debug/HTMLVarDumper.php',
+    'PerfectApp\\Debug\\VarDumper' => $vendorDir . '/krubio/perfect_app_oop/src/Debug/VarDumper.php',
+    'PerfectApp\\Logging\\LoginLogger' => $vendorDir . '/krubio/perfect_app_oop/src/Logging/LoginLogger.php',
+    'PerfectApp\\Logging\\SQLLoginAttemptsLog' => $vendorDir . '/krubio/perfect_app_oop/src/Logging/SQLLoginAttemptsLog.php',
+    'PerfectApp\\Utilities\\DisplayActionMessage' => $vendorDir . '/krubio/perfect_app_oop/src/Utilitys/DisplayActionMessage.php',
 );

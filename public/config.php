@@ -80,19 +80,20 @@ define("IMAGE_ALT", APP_NAME);
 //  DO NOT EDIT BELOW HERE
 //----------------------------------------------------------------------------------------
 
-if (version_compare(PHP_VERSION, '5.4') < 0)
+if (version_compare(PHP_VERSION, '5.6') < 0)
 {
-    die('Your PHP installation is too old. Requires at least PHP 5.4');
+    die('Your PHP installation is too old. Requires at least PHP 5.6');
 }
 
 define('ABSPATH', __dir__ . DIRECTORY_SEPARATOR);
 
-// Path To error log
-define("ERROR_LOG_PATH", ABSPATH . "logs" . DIRECTORY_SEPARATOR . "error.log");
 
+// Path To error log
+define("ERROR_LOG_PATH", "..". DIRECTORY_SEPARATOR . "logs" . DIRECTORY_SEPARATOR . "error.log");
 
 /** Required files. */
-require 'functions.php';
+require '../functions.php';
+require "../vendor/autoload.php";
 
 // Custom exception handler function (functions.php)
 set_exception_handler('custom_exception');
@@ -104,8 +105,6 @@ $error_handler = new Raven_ErrorHandler($client);
 $error_handler->registerExceptionHandler();
 $error_handler->registerErrorHandler();
 $error_handler->registerShutdownFunction();*/
-
-require "vendor/autoload.php";
 
 if (DEBUG)
 {

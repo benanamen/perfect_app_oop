@@ -1,6 +1,8 @@
 <?php
-ob_start();
-session_start();
+//ob_start();
+//session_start();
+
+
 
 //----------------------------------------------------------------------------------------
 // Allow direct access to this page
@@ -14,7 +16,7 @@ define('SECURE_PAGE', true);
 
 /*if (!isset($_SESSION['login']))
 {
-    header("Location: ./login.php");
+    header("Location: ../login.php");
     die;
 }*/
 
@@ -22,10 +24,11 @@ define('SECURE_PAGE', true);
 //
 //----------------------------------------------------------------------------------------
 
-require('../config.php');
+require('./config.php');
 include('./includes/header.php');
 include('./includes/navbar.php');
 include('./includes/display_pages.php');
+
 ?>
 <div class="row">
     <div class="col-md-3">

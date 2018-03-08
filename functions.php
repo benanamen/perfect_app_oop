@@ -85,12 +85,12 @@ function custom_exception($exception)
 {
     echo '<div class="error_custom col-md-12"><b>Fatal Error!</b>';
 
-    $error_msg = $exception->getMessage() . '|' . $exception->getFile() . ' Line ' . $exception->getLine();
+    $error_msg = "DATE: " . MYSQL_DATETIME_TODAY . "\nERROR: " . $exception->getMessage() . "\nFILE: " . $exception->getFile() . ' on line ' . $exception->getLine() . "\n\nSTACK TRACE\n" . $exception->getTraceAsString() . "\n";
 
     if (EMAIL_ERROR)
     {
         echo '<br>Admin has been notified';
-        error_log("ERROR: $error_msg\n", 1, ADMIN_EMAIL_TO, "From:" . ADMIN_EMAIL_FROM);
+        error_log("$error_msg", 1, ADMIN_EMAIL_TO, "From:" . ADMIN_EMAIL_FROM);
     }
     else
     {
@@ -101,7 +101,7 @@ function custom_exception($exception)
     if (LOG_ERROR)
     {
         echo '<br>Error has been logged';
-        error_log(MYSQL_DATETIME_TODAY . "|$error_msg\r\n", 3, ERROR_LOG_PATH);
+        error_log("$error_msg\r\n", 3, ERROR_LOG_PATH);
     }
     else
     {
@@ -115,8 +115,8 @@ function custom_exception($exception)
         echo '<div class="error_custom col-md-12"><b>Error Message:</b>';
         echo '<pre>';
         echo $exception->getMessage();
-        echo '<br>File:' . $exception->getFile();
-        echo '<br>Line ' . $exception->getLine();
+        echo '<br>FILE: ' . $exception->getFile();
+        echo '<br>on line ' . $exception->getLine();
         echo '</pre>';
         echo '</div>';
 
