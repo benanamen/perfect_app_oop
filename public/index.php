@@ -2,45 +2,6 @@
 ob_start();
 session_start();
 
-
-require('./config.php');
-
-//----------------------------------------------------------------------------------------
-// Create PDO DB Connection
-//----------------------------------------------------------------------------------------
-require "../vendor/autoload.php";
-
-
-//----------------------------------------------------------------------------------------
-// Create PDO DB Connection
-//----------------------------------------------------------------------------------------
-
-use PerfectApp\Database\MysqlConnection;
-
-
-$db = new MysqlConnection();
-$pdo = $db->connect();
-
-if (!is_object($pdo))
-{
-    return false;
-}
-
-/*$loginAttempts = new MysqlQuery($pdo);
-include './templates/listLoginAttempts.php';
-*/
-
-
-
-
-//die();
-
-
-
-
-
-
-
 //----------------------------------------------------------------------------------------
 // Allow direct access to this page
 //----------------------------------------------------------------------------------------
@@ -61,6 +22,7 @@ define('SECURE_PAGE', true);
 //
 //----------------------------------------------------------------------------------------
 
+require('./config.php');
 include('./includes/header.php');
 include('./includes/navbar.php');
 include('./includes/display_pages.php');

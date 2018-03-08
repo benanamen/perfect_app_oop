@@ -93,10 +93,24 @@ define("ERROR_LOG_PATH", "..". DIRECTORY_SEPARATOR . "logs" . DIRECTORY_SEPARATO
 
 /** Required files. */
 require '../functions.php';
-//require "../vendor/autoload.php";
+require "../vendor/autoload.php";
 
 // Custom exception handler function (functions.php)
 set_exception_handler('custom_exception');
+
+//----------------------------------------------------------------------------------------
+// Create PDO DB Connection
+//----------------------------------------------------------------------------------------
+
+use PerfectApp\Database\MysqlConnection;
+
+$db = new MysqlConnection();
+$pdo = $db->connect();
+
+if (!is_object($pdo))
+{
+    return false;
+}
 
 /*// Sentry Error Tracking
 require_once '../vendor/Autoload.php';
