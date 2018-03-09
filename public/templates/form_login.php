@@ -1,34 +1,50 @@
-<form class="form-horizontal" action="<?= $_SERVER['SCRIPT_NAME'] ?>" method="post" autocomplete="off">
-    <div class="form-group <?= !empty($error['username']) ? 'has-error' : '' ?>">
-        <label for="username" class="col-md-4 control-label">Username</label>
-        <div class="col-md-4">
-            <input name="username" type="text" class="form-control" id="username" placeholder="username" value="<?= !empty($_POST['username']) ? htmlspecialchars($_POST['username']) : '' ?>" autofocus >
+<div class="row justify-content-center">
+    <div class="col-6">
+
+<form method="post" autocomplete="off">
+    <div class="form-group row">
+        <label class="col-3 col-form-label" for="username">Username <span class="text-danger">*</span></label>
+        <div class="col-6">
+            <input id="username" name="username" placeholder="Username" class="form-control <?= !empty($error['username']) ? 'is-invalid' : '' ?>" aria-describedby="usernameHelpBlock" type="text" value="<?= !empty($_POST['username']) ? htmlspecialchars($_POST['username']) : '' ?>" autofocus>
+
             <?php if (!empty($error['username'])): ?>
-                <span class="help-block"><?= $error['username'] ?></span>
-            <?php endif; ?>
-        </div>
-    </div>
-    <div class="form-group <?= !empty($error['password']) ? 'has-error' : '' ?>">
-        <label for="password" class="col-md-4 control-label">Password</label>
-        <div class="col-md-4">
-            <input name="password" type="password" class="form-control" id="password" placeholder="Password" value="<?= !empty($_POST['password']) ? htmlspecialchars($_POST['password']) : '' ?>">
-            <?php if (!empty($error['password'])): ?>
-                <span class="help-block"><?= $error['password'] ?></span>
+            <span id="usernameHelpBlock" class="form-text <?= !empty($error['username']) ? 'invalid-feedback' : 'text-muted' ?>"><?= $error['username'] ?></span>
             <?php endif;?>
+
         </div>
     </div>
-    <div class="form-group">
-        <div class="col-sm-offset-4 col-sm-10">
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox"> Remember me
-                </label>
+
+    <div class="form-group row">
+        <label for="password" class="col-3 col-form-label">Password <span class="text-danger">*</span></label>
+        <div class="col-6">
+            <input id="password" name="password" placeholder="Password" class="form-control <?= !empty($error['password']) ? 'is-invalid' : '' ?>" aria-describedby="passwordHelpBlock" type="text" value="<?= !empty($_POST['password']) ? htmlspecialchars($_POST['password']) : '' ?>" >
+
+            <?php if (!empty($error['password'])): ?>
+            <span id="passwordHelpBlock" class="form-text <?= !empty($error['password']) ? 'invalid-feedback' : 'text-muted' ?>"><?= $error['password'] ?></span>
+            <?php endif;?>
+
+        </div>
+    </div>
+
+<!--    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
+            <label class="form-check-label" for="invalidCheck3">
+                Agree to terms and conditions
+            </label>
+            <div class="invalid-feedback">
+                You must agree before submitting.
             </div>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-4 col-md-4">
-            <button type="submit" class="btn btn-primary">Sign In</button>  <a href="./forgot.php">Forgot Password</a> | <a href="./register.php">Register</a>
+    </div>-->
+
+
+    <div class="form-group row">
+        <div class="offset-3 col-1">
+            <button name="submit" type="submit" class="btn btn-primary">Sign In</button>
         </div>
     </div>
 </form>
+
+    </div>
+</div>
