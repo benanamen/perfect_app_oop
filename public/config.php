@@ -12,6 +12,13 @@
 
 namespace PerfectApp\Debug;
 
+/** Required files. */
+require '../functions.php';
+require "../vendor/autoload.php";
+
+// Custom exception handler function (functions.php)
+set_exception_handler('custom_exception');
+
 //----------------------------------------------------------------------------------------
 // Application Url
 //----------------------------------------------------------------------------------------
@@ -59,6 +66,7 @@ define("LOG_ERROR", true); // Log errors to file
 //----------------------------------------------------------------------------------------
 // Debugging
 //----------------------------------------------------------------------------------------
+
 define("DEBUG", false); // Toggle Debugging
 
 define("SHOW_DEBUG_PARAMS", DEBUG); // Display Sql & Sql Parameters
@@ -67,6 +75,11 @@ define("SHOW_POST_DATA", DEBUG); // Display Post Data
 define("SHOW_GET_DATA", DEBUG); // Display Get Data
 define("SHOW_COOKIE_DATA", false); // Display Cookie Data
 define("SHOW_REQUEST_DATA", false); // Display Request Data
+
+if (DEBUG)
+{
+    ShowDebugData::showDebugData();
+}
 
 //----------------------------------------------------------------------------------------
 // Main Logo
@@ -90,13 +103,6 @@ define('ABSPATH', __dir__ . DIRECTORY_SEPARATOR);
 // Path To error log
 define("ERROR_LOG_PATH", ".." . DIRECTORY_SEPARATOR . "logs" . DIRECTORY_SEPARATOR . "error.log");
 
-/** Required files. */
-require '../functions.php';
-require "../vendor/autoload.php";
-
-// Custom exception handler function (functions.php)
-set_exception_handler('custom_exception');
-
 //----------------------------------------------------------------------------------------
 // Create PDO DB Connection
 //----------------------------------------------------------------------------------------
@@ -115,51 +121,16 @@ if (!is_object($pdo))
 //  Sentry Error Tracking
 //----------------------------------------------------------------------------------------
 
-/*
-require_once '../vendor/Autoload.php';
+
+/*require_once '../vendor/Autoload.php';
 $client = new Raven_Client('https://b770f71f9d7444339d3e236377ff8d79:8dd13a7685f44875b26ef720b6223dfa@sentry.io/135633');
 $error_handler = new Raven_ErrorHandler($client);
 $error_handler->registerExceptionHandler();
 $error_handler->registerErrorHandler();
 $error_handler->registerShutdownFunction();*/
 
-//----------------------------------------------------------------------------------------
-//
-//----------------------------------------------------------------------------------------
-
-if (DEBUG)
-{
-    echo '<div class="error_custom"><H1>DEBUGGING IS ON !!!</H1></div>';
-
-    if (SHOW_COOKIE_DATA)
-    {
-        $var['COOKIE'] = $_COOKIE;
-    }
-
-    if (SHOW_SESSION_DATA && isset($_SESSION))
-    {
-        $var['SESSION'] = $_SESSION;
-    }
-
-    if (SHOW_POST_DATA)
-    {
-        $var['POST'] = $_POST;
-    }
-
-    if (SHOW_GET_DATA)
-    {
-        $var['GET'] = $_GET;
-    }
-
-    if (SHOW_REQUEST_DATA)
-    {
-        $var['REQUEST'] = $_REQUEST;
-    }
-
-    $varDumper = new HTMLVarDumper();
-
-    foreach ($var as $title => $data)
-    {
-        $varDumper->dump($title, $data);
-    }
-}
+$client = new \Raven_Client('https://8cd1d3113bff47908842b365aee02a7f:191b64007c2b48dfb81e33ace71c362d@sentry.io/301353');
+$error_handler = new \Raven_ErrorHandler($client);
+$error_handler->registerExceptionHandler();
+$error_handler->registerErrorHandler();
+$error_handler->registerShutdownFunction();
