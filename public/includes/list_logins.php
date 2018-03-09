@@ -10,4 +10,4 @@ if (!defined('SECURE_PAGE'))
 
 use PerfectApp\Database\MysqlQuery;
 $loginAttempts = new MysqlQuery($pdo);
-include './templates/listLoginAttempts.php';
+include './templates/list_logins.php';
