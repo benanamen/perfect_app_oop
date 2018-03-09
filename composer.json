@@ -16,5 +16,9 @@
     }
   },
   "require": {
+    "sentry/sentry": "^1.8",
+    "monolog/monolog": "^1.23"
+  },
+  "require-dev": {
   }
 }
