@@ -221,8 +221,8 @@ function show_form_errors($error)
 {
     $error = implode("<br >\n", $error) . "\n";
     ?>
-    <div class="row">
-        <div class="col-md-offset-2 col-md-8">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-md-offset-3">
             <div class="error_custom"><?= $error ?></div>
         </div>
     </div>

@@ -1,6 +1,8 @@
 <?php
-
 namespace PerfectApp\Logging;
+
+use \PDO;
+
 /** Test - Usage
 require('../config.php');
 $test = new SQLLoginAttemptsLog($pdo);

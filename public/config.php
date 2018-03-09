@@ -87,7 +87,6 @@ if (version_compare(PHP_VERSION, '5.6') < 0)
 
 define('ABSPATH', __dir__ . DIRECTORY_SEPARATOR);
 
-
 // Path To error log
 define("ERROR_LOG_PATH", "..". DIRECTORY_SEPARATOR . "logs" . DIRECTORY_SEPARATOR . "error.log");
 
@@ -112,13 +111,21 @@ if (!is_object($pdo))
     return false;
 }
 
-/*// Sentry Error Tracking
+//----------------------------------------------------------------------------------------
+//  Sentry Error Tracking
+//----------------------------------------------------------------------------------------
+
+/*
 require_once '../vendor/Autoload.php';
 $client = new Raven_Client('https://b770f71f9d7444339d3e236377ff8d79:8dd13a7685f44875b26ef720b6223dfa@sentry.io/135633');
 $error_handler = new Raven_ErrorHandler($client);
 $error_handler->registerExceptionHandler();
 $error_handler->registerErrorHandler();
 $error_handler->registerShutdownFunction();*/
+
+//----------------------------------------------------------------------------------------
+//
+//----------------------------------------------------------------------------------------
 
 if (DEBUG)
 {
