@@ -121,14 +121,6 @@ if (!is_object($pdo))
 //  Sentry Error Tracking
 //----------------------------------------------------------------------------------------
 
-
-/*require_once '../vendor/Autoload.php';
-$client = new Raven_Client('https://b770f71f9d7444339d3e236377ff8d79:8dd13a7685f44875b26ef720b6223dfa@sentry.io/135633');
-$error_handler = new Raven_ErrorHandler($client);
-$error_handler->registerExceptionHandler();
-$error_handler->registerErrorHandler();
-$error_handler->registerShutdownFunction();*/
-
 $client = new \Raven_Client('https://8cd1d3113bff47908842b365aee02a7f:191b64007c2b48dfb81e33ace71c362d@sentry.io/301353');
 $error_handler = new \Raven_ErrorHandler($client);
 $error_handler->registerExceptionHandler();
