@@ -88,7 +88,7 @@ if (version_compare(PHP_VERSION, '5.6') < 0)
 define('ABSPATH', __dir__ . DIRECTORY_SEPARATOR);
 
 // Path To error log
-define("ERROR_LOG_PATH", "..". DIRECTORY_SEPARATOR . "logs" . DIRECTORY_SEPARATOR . "error.log");
+define("ERROR_LOG_PATH", ".." . DIRECTORY_SEPARATOR . "logs" . DIRECTORY_SEPARATOR . "error.log");
 
 /** Required files. */
 require '../functions.php';
@@ -129,32 +129,37 @@ $error_handler->registerShutdownFunction();*/
 
 if (DEBUG)
 {
-    $varDumper = new HTMLVarDumper();
     echo '<div class="error_custom"><H1>DEBUGGING IS ON !!!</H1></div>';
-
 
     if (SHOW_COOKIE_DATA)
     {
-        $varDumper->dump('COOKIE', $_COOKIE);
+        $var['COOKIE'] = $_COOKIE;
     }
 
     if (SHOW_SESSION_DATA && isset($_SESSION))
     {
-        $varDumper->dump('SESSION', $_SESSION);
+        $var['SESSION'] = $_SESSION;
     }
 
     if (SHOW_POST_DATA)
     {
-        $varDumper->dump('POST', $_POST);
+        $var['POST'] = $_POST;
     }
 
     if (SHOW_GET_DATA)
     {
-        $varDumper->dump('GET', $_GET);
+        $var['GET'] = $_GET;
     }
 
     if (SHOW_REQUEST_DATA)
     {
-        $varDumper->dump('REQUEST', $_REQUEST);
+        $var['REQUEST'] = $_REQUEST;
+    }
+
+    $varDumper = new HTMLVarDumper();
+
+    foreach ($var as $title => $data)
+    {
+        $varDumper->dump($title, $data);
     }
 }

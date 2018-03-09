@@ -1,4 +1,5 @@
 <?php
+ob_start();// Only needed when Debugging is turned on
 /**
  * Last Modified <!--%TimeStamp%-->12/1/2017 8:37 PM<!---->
  */
