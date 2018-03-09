@@ -210,23 +210,6 @@ function logo($img_width, $img_height, $alt_text)
     <?php
 }
 
-/**
- * Display various action messages
- *
- * @param $status
- * @param $message
- */
-
-function show_action_message($status, $message)
-{
-    ?>
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="<?= $status ?>"><?= $message ?></div>
-        </div>
-    </div>
-    <?php
-}
 
 /**
  * Displays Errors
