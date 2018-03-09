@@ -12,7 +12,7 @@ class ShowDebugData
     /**
      *
      */
-    public static function showDebugData()
+    public static function displayDebugData()
     {
         echo '<div class="error_custom"><H1>DEBUGGING IS ON !!!</H1></div>';
 

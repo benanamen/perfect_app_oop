@@ -5,7 +5,8 @@
 
 if (!isset($_GET['k']))
     {
-    die(header("Location: ./index.php"));
+    header("Location: ./index.php");
+    die;
     }
 
 require ("../config.php");
@@ -24,11 +25,13 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$row)
     {
-    die(header("Location: login.php?failed_confirmation"));
+    header("Location: login.php?failed_confirmation");
+    die;
     }
 
 $sql = "UPDATE users SET is_active=?, verified_email=?, confirmation_key=? WHERE confirmation_key = ? ";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([1, 1, NULL, $token_hash]);
 
-die(header("Location: ./login.php?verified"));
+header("Location: ./login.php?verified");
+die;

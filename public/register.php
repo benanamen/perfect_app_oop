@@ -55,7 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $email_body = "Click to activate account\r\n" . APPLICATION_URL . "/activate.php?k=$encoded_token";
             send_email("{$_POST['email']}", $subject, $email_body, ADMIN_EMAIL_FROM);
 
-            die(header("Location: ./login.php?confirm"));
+            header("Location: ./login.php?confirm");
+            die;
             }
         catch(PDOException $e)
             {

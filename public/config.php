@@ -78,7 +78,7 @@ define("SHOW_REQUEST_DATA", false); // Display Request Data
 
 if (DEBUG)
 {
-    ShowDebugData::showDebugData();
+    ShowDebugData::displayDebugData();
 }
 
 //----------------------------------------------------------------------------------------
