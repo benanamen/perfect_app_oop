@@ -89,7 +89,12 @@ class DisplayActionMessage
             $message = 'Invalid/Expired Code';
         }
 
-        return self::show_action_message($status, $message);
+        if ($status)
+        {
+            return self::show_action_message($status, $message);
+        }
+
+        return null;
     }
 
     /**
@@ -101,7 +106,7 @@ class DisplayActionMessage
     {
         return <<<HTML
 
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-md-6 col-md-offset-3">
                 <div class="$status">$message</div>
             </div>
