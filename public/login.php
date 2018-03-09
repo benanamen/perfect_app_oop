@@ -3,7 +3,6 @@
  * Last Modified <!--%TimeStamp%-->12/1/2017 8:37 PM<!---->
  */
 
-//use \PDO;
 use PerfectApp\Logging\SQLLoginAttemptsLog;
 
 //----------------------------------------------------------------------------------------
@@ -45,7 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         {
         $login_attempt = new SQLLoginAttemptsLog($pdo);
 
-
         $sql  = "SELECT username, password, first_name, last_name, is_active FROM users WHERE username = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
@@ -78,7 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             //----------------------------------------------------------------------------
             // Log sucessful login attempt & Update Last Login Datetime
             //----------------------------------------------------------------------------
-
 
             $sql  = "UPDATE users SET last_login = NOW() WHERE username = ?;";
             $stmt = $pdo->prepare($sql);
