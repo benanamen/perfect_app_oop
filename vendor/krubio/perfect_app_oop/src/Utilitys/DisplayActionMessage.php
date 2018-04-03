@@ -77,6 +77,12 @@ class DisplayActionMessage
             $message = 'Invalid Login';
         }
 
+        if (isset($_GET['inactive']))
+        {
+            $status = 'error_custom';
+            $message = 'Inactive Account';
+        }
+
         if (isset($_GET['failed_reset']))
         {
             $status = 'error_custom';
