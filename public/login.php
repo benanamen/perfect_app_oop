@@ -1,11 +1,13 @@
 <?php
 /**
- * Last Modified <!--%TimeStamp%-->03/09/2018 9:21 PM<!---->
+ * Last Modified <!--%TimeStamp%-->04/02/2018 11:30 AM<!---->
  */
 
 ob_start();// Only needed when Debugging is turned on
 
+use PerfectApp\Auth\AuthenticateUser;
 use PerfectApp\Logging\SQLLoginAttemptsLog;
+use PerfectApp\Utilities\DisplayActionMessage;
 
 //----------------------------------------------------------------------------------------
 // Allow direct access to this page
@@ -45,30 +47,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     else
     {
         $login_attempt = new SQLLoginAttemptsLog($pdo);
+        $user = new AuthenticateUser($pdo);
 
-        $sql = "SELECT password, first_name, last_name, is_active FROM users WHERE username = ?";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$_POST['username']]);
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        // Username didn't match, Redirect.
-        if (!$row)
+        // Username and/or password didn't match
+        if (!$user->check($_POST['username'], $_POST['password']))
         {
             $login_attempt->logFailedAttempt($_POST['username']);
             header("Location: {$_SERVER['SCRIPT_NAME']}?failed_login");
             die;
         }
-
-        //--------------------------------------------------------------------------------
-        // Compare the password to the expected hash.
-        //--------------------------------------------------------------------------------
-
-        // Password is good
-        if (password_verify($_POST['password'], $row['password']))
+        else
         {
-            // Person status is inactive
-            if (!$row['is_active'])
+            if (!$user->check($_POST['username'], $_POST['password'])['is_active'])
             {
+                $login_attempt->logFailedAttempt($_POST['username']);
                 header("Location: ./login.php?inactive");
                 die;
             }
@@ -96,14 +88,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
             header("Location: ./index.php");
             die;
-        } // End if password_verify
-        else
-        {
-            $login_attempt->logFailedAttempt($_POST['username']);
-            header("Location: {$_SERVER['SCRIPT_NAME']}?failed_login");
-            die;
-        }
-    } // End Else
+
+        }//End Else
+    } // End else
 } // End if Post
 
 // ---------------------------------------------------------------------------------------
@@ -112,8 +99,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 include('./includes/header.php');
 logo(IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_ALT);
-
-use PerfectApp\Utilities\DisplayActionMessage;
 
 echo DisplayActionMessage::actionMessage();
 
