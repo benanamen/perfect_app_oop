@@ -4,12 +4,12 @@
  */
 
 if (!isset($_GET['k']))
-    {
+{
     header("Location: ./index.php");
     die;
-    }
+}
 
-require ("../config.php");
+require("./config.php");
 
 $encoded_token = $_GET['k'];
 
@@ -18,18 +18,18 @@ $raw_token = hex2bin($encoded_token);
 $token_hash = hash('sha256', $raw_token);
 
 /** look up $token_hash */
-$sql = "SELECT confirmation_key FROM users WHERE confirmation_key = ? ";
+$sql = "SELECT verify_email_hash FROM users WHERE verify_email_hash = ? ";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$token_hash]);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$row)
-    {
+{
     header("Location: login.php?failed_confirmation");
     die;
-    }
+}
 
-$sql = "UPDATE users SET is_active=?, verified_email=?, confirmation_key=? WHERE confirmation_key = ? ";
+$sql = "UPDATE users SET is_active=?, verified_email=?, verify_email_hash=? WHERE verify_email_hash = ? ";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([1, 1, NULL, $token_hash]);
 
