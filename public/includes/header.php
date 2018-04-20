@@ -27,7 +27,9 @@ if (!defined('SECURE_PAGE'))
 
     <script>
         $(document).ready(function () {
-            $('#myDataTable').DataTable();
+            $('#myDataTable').DataTable({
+                "order" : [[ 3, "desc"]]
+            });
         });
     </script>
 
