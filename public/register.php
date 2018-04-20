@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     // Trim Data, Sanitize Input, Check Missing Fields
     // -----------------------------------------------------------------------------------
 
-    include('./includes/validation/validate_registration.php');
+    include './includes/validation/validate_registration.php';
 
     // -----------------------------------------------------------------------------------
     // Check for errors
@@ -50,6 +50,6 @@ if ($show_error)
 // ---------------------------------------------------------------------------------------
 // Display Form & Footer
 // ---------------------------------------------------------------------------------------
-require('./includes/header.php');
-include('./templates/form_register.php');
-include('./includes/footer.php');
+require './includes/header.php';
+include './templates/form_register.php';
+include './includes/footer.php';

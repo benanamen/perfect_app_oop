@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 // Reset Code Form
 //----------------------------------------------------------------------------------------
 
-include('./includes/header.php');
+include './includes/header.php';
 logo(IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_ALT);
 
 // ---------------------------------------------------------------------------------------
@@ -167,4 +167,4 @@ $reset_code = isset($_GET['k']) ? $_GET['k'] : $reset_code = isset($_POST['reset
 
     </form>
 <?php
-include('./includes/footer.php');
+include './includes/footer.php';

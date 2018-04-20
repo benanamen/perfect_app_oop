@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 // Login Form
 // ---------------------------------------------------------------------------------------
 
-include('./includes/header.php');
+include './includes/header.php';
 logo(IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_ALT);
 
 echo DisplayActionMessage::actionMessage();
@@ -115,5 +115,5 @@ if ($show_error)
 // Display Form & Footer
 // ---------------------------------------------------------------------------------------
 
-include('./templates/form_login.php');
-include('./includes/footer.php');
+include './templates/form_login.php';
+include './includes/footer.php';
