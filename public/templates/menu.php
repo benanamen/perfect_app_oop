@@ -20,6 +20,7 @@ if (!defined('SECURE_PAGE'))
     <ul class="list-group list-group-flush">
         <li class="list-group-item"><a href="<?= $_SERVER['SCRIPT_NAME'] ?>">Home</a></li>
 
+        <li class="list-group-item"><a href="<?= $_SERVER['SCRIPT_NAME'] ?>?p=change_password">Change Password</a></li>
         <li class="list-group-item"><a href="<?= $_SERVER['SCRIPT_NAME'] ?>?p=settings">Settings</a></li>
         <li class="list-group-item"><a href="<?= $_SERVER['SCRIPT_NAME'] ?>?p=list_logins">Login Attempts</a></li>
         <li class="list-group-item"><a href="<?= $_SERVER['SCRIPT_NAME'] ?>?p=errors">Error Log</a></li>
