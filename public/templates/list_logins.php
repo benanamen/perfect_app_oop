@@ -1,3 +1,10 @@
+<?php
+if (!defined('SECURE_PAGE'))
+{
+    die('<h1>Direct File Access Prohibited</h1>');
+}
+?>
+
 <div class="row">
     <h3>Login Attempts</h3>
 </div>

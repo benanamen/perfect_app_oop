@@ -1,3 +1,10 @@
+<?php
+if (!defined('SECURE_PAGE'))
+{
+    die('<h1>Direct File Access Prohibited</h1>');
+}
+?>
+
 <div class="row justify-content-center">
     <div class="col-6">
         <form class="form-horizontal" method="post" autocomplete="off">
