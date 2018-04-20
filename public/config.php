@@ -101,7 +101,7 @@ if (version_compare(PHP_VERSION, '5.6') < 0)
 define('ABSPATH', __dir__ . DIRECTORY_SEPARATOR);
 
 // Path To error log
-define("ERROR_LOG_PATH", ".." . DIRECTORY_SEPARATOR . "logs" . DIRECTORY_SEPARATOR . "error.log");
+define("ERROR_LOG_PATH", ABSPATH . ".." . DIRECTORY_SEPARATOR . "logs" . DIRECTORY_SEPARATOR . "error.log");
 
 //----------------------------------------------------------------------------------------
 // Create PDO DB Connection
