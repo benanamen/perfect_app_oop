@@ -65,7 +65,7 @@ class StandardUserRegistration implements UserRegistration
               , email
               , username
               , password
-              , confirmation_key
+              , verify_email_hash
               )
             VALUES (?,?,?,?,?,?)';
             $stmt = $this->pdo->prepare($sql);

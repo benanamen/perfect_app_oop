@@ -29,7 +29,7 @@ if (!$row)
     die;
 }
 
-$sql = "UPDATE users SET is_active=?, verified_email=?, verify_email_hash=? WHERE verify_email_hash = ? ";
+$sql = "UPDATE users SET is_active=?, is_email_verified=?, verify_email_hash=? WHERE verify_email_hash = ? ";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([1, 1, NULL, $token_hash]);
 
