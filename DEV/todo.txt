@@ -3,7 +3,5 @@ TWIG 2.0 requires Php 7.0
 
 jquery-slim.min.js messes up pagination for Datatables. Use regular Jquery
 
-
-
-TODO: Catch Warnings - To test edit config/dbConfig.php to non existent host in define('DB_HOST', 'Xlocalhost');
-
+INFO: PhpDocumentor: From the PHPDocumenter Bin Dir Command Prompt run:
+phpdoc.bat -d E:\xampp\htdocs\perfect_app_oop\vendor\krubio\perfect_app_oop\src\ -t E:\xampp\htdocs\perfect_app_oop\docs
