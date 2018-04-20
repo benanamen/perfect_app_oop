@@ -44,13 +44,13 @@ class DisplayActionMessage
         if (isset($_GET['logout']))
         {
             $status = 'success';
-            $message = 'You have been successfully logged out.';
+            $message = 'Successful log out.';
         }
 
         if (isset($_GET['confirm']))
         {
             $status = 'success';
-            $message = 'Email confirmation instructions have been sent.<br>Check your spam folder.';
+            $message = 'Email confirmation instructions have been sent. Check your spam folder.';
         }
 
         if (isset($_GET['verified']))
@@ -112,11 +112,12 @@ class DisplayActionMessage
     {
         return <<<HTML
 
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="$status">$message</div>
-            </div>
+    <div class="d-flex p-2 d-flex justify-content-center">
+        <div class="col-sm-2 col-md-4 col-form-label">
+            <div class="$status">$message</div>
         </div>
+    </div>
+
 HTML;
     }
 }
