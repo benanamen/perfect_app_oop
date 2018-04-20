@@ -1,8 +1,9 @@
 <?php
-/**
- * Last Modified <!--%TimeStamp%-->12/1/2017 8:36 PM<!---->
- */
+//----------------------------------------------------------------------------------------
+// Allow direct access to this page
+//----------------------------------------------------------------------------------------
 
+define('SECURE_PAGE', true);
 require('./config.php');
 
 $error = [];
@@ -131,20 +132,42 @@ if ($show_error)
 // Display Form
 // ---------------------------------------------------------------------------------------
 ?>
-    <form class="form-horizontal" action="<?= $_SERVER['SCRIPT_NAME'] ?>" method="post" autocomplete="off">
-        <div class="form-group <?= !empty($error['email']) ? 'has-error' : '' ?>">
-            <label class="col-md-4 control-label" for="email">Enter Email</label>
-            <div class="col-md-4">
-                <input id="email" name="email" type="text" placeholder="Email Address" class="form-control input-md">
-                <span class="help-block">Reset instructions will be emailed</span>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-6 offset-md-3">
+
+                <!-- form card reset password -->
+                <div class="card card-outline-secondary">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">Password Reset</h3>
+                    </div>
+                    <div class="card-body">
+                        <form role="form" method="post" autocomplete="off">
+                            <div class="form-group">
+                                <label for="inputResetPasswordEmail">Email</label>
+                                <input id="inputResetPasswordEmail"
+                                       name="email"
+                                       type="email"
+                                       class="form-control <?= !empty($error['email']) ? 'is-invalid' : '' ?>">
+
+                                <?php if (!empty($error['email'])): ?>
+                                    <span class="form-text <?= !empty($error['email']) ? 'invalid-feedback' : '' ?>"><?= $error['email'] ?></span>
+                                <?php endif; ?>
+
+                                <span id="helpResetPasswordEmail" class="form-text small text-muted">Password reset instructions will be sent to this email address.</span>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-md float-right">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-md-offset-4  col-sm-10">
-                <button id="submit" type="submit" name="submit" class="btn btn-primary">Reset Password</button>
-                <a href="./login.php">Login</a>
-            </div>
-        </div>
-    </form>
+    </div>
+
 <?php
 include('./includes/footer.php');
