@@ -21,7 +21,7 @@
             </div>
 
             <div class="form-group row">
-                <label class="col-3 col-form-label" for="last_name">First Name <span
+                <label class="col-3 col-form-label" for="last_name">Last Name <span
                             class="text-danger">*</span></label>
                 <div class="col-6">
                     <input id="last_name" name="last_name" placeholder="Last Name"
