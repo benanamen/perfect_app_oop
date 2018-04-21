@@ -63,7 +63,7 @@ if (!defined('SECURE_PAGE'))
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-md float-right">Save</button>
+                        <button type="submit" class="btn btn-primary btn-md">Save</button>
                     </div>
                     </form>
                 </div>

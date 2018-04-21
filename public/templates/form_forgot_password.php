@@ -30,7 +30,7 @@ if (!defined('SECURE_PAGE'))
                             <span id="helpResetPasswordEmail" class="form-text small text-muted">Password reset instructions will be sent to this email address.</span>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-md float-right">Reset</button>
+                            <button type="submit" class="btn btn-primary btn-md">Reset</button>
                         </div>
                     </form>
                 </div>
