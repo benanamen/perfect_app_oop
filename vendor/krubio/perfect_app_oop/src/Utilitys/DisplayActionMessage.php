@@ -112,10 +112,8 @@ class DisplayActionMessage
     {
         return <<<HTML
 
-    <div class="d-flex p-2 d-flex justify-content-center">
-        <div class="col-sm-2 col-md-4 col-form-label">
+    <div class="col-md-6 offset-md-3">
             <div class="$status">$message</div>
-        </div>
     </div>
 
 HTML;

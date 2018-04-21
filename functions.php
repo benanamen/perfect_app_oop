@@ -203,7 +203,7 @@ function empty2null($value)
 function logo($img_width, $img_height, $alt_text)
 {
     ?>
-    <div class="d-flex p-2 d-flex justify-content-center mb-5">
+    <div class="d-flex p-2 justify-content-center mb-5">
         <a href="<?= APPLICATION_URL ?>">
             <img src="./images/<?= IMAGE_FILENAME ?>"
                  width="<?= $img_width ?>"
@@ -218,12 +218,8 @@ function show_form_errors($error)
 {
     $error = implode("<br >\n", $error) . "\n";
     ?>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="col-md-6 offset-md-3">
-                <div class="error_custom"><?= $error ?></div>
-            </div>
-        </div>
+    <div class="col-md-6 offset-md-3">
+        <div class="error_custom"><?= $error ?></div>
     </div>
     <?php
 }
