@@ -1,4 +1,6 @@
 <?php
+use PerfectApp\Utilities\DisplayActionMessage;
+
 //----------------------------------------------------------------------------------------
 // Allow direct access to this page
 //----------------------------------------------------------------------------------------
@@ -26,30 +28,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         $error['reset_code'] = 'Reset Code Required';
     }
+    elseif (strlen($_POST['reset_code']) != 32)
+    {
+        $error['invalid_token'] = 'Valid Reset Code Required';
+    }
+    // Decode Token. Rare instance to use @ error suppression
+    elseif (!$raw_token = @hex2bin($_POST['reset_code']))
+    {
+        $error['invalid_token'] = 'Invalid Token';
+    }
 
     if (empty($_POST['new_password']))
     {
         $error['new_password'] = 'New Password Required';
     }
 
-    if (empty($_POST['new_password_confirm']))
+    if (empty($_POST['confirm_new_password']))
     {
-        $error['new_password_confirm'] = ' Confirm Password Required';
+        $error['confirm_new_password'] = ' Confirm Password Required';
     }
-    elseif ($_POST['new_password'] != $_POST['new_password_confirm'])
+    elseif ($_POST['new_password'] != $_POST['confirm_new_password'])
     {
-        $error['new_password_confirm'] = 'Passwords do not match';
-    }
-
-    if (strlen($_POST['reset_code']) != 32)
-    {
-        $error['invalid_token'] = 'Invalid Token';
-    }
-
-    // Decode Token. Rare instance to use @ error suppression
-    if (!$raw_token = @hex2bin($_POST['reset_code']))
-    {
-        $error['invalid_token'] = 'Invalid Token';
+        $error['confirm_new_password'] = 'Passwords do not match';
     }
 
     //------------------------------------------------------------------------------------
@@ -113,6 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 include './includes/header.php';
 logo(IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_ALT);
+echo DisplayActionMessage::actionMessage();
 
 // ---------------------------------------------------------------------------------------
 // Display Form Errors
@@ -128,43 +129,6 @@ if ($show_error)
 // ---------------------------------------------------------------------------------------
 
 $reset_code = isset($_GET['k']) ? $_GET['k'] : $reset_code = isset($_POST['reset_code']) ? $_POST['reset_code'] : '';
-?>
-    <form class="form-horizontal" action="<?= $_SERVER['SCRIPT_NAME'] ?>" method="post" autocomplete="off">
 
-        <div class="form-group <?= !empty($error['reset_code']) ? 'has-error' : '' ?>">
-            <label class="col-md-4 control-label" for="reset_code">Reset Code</label>
-            <div class="col-md-5">
-                <input id="reset_code" name="reset_code" type="text" placeholder="Reset Code"
-                       class="form-control input-md"
-                       value="<?= !empty($reset_code) ? htmlspecialchars($reset_code, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : ''; ?>">
-            </div>
-        </div>
-
-        <div class="form-group <?= !empty($error['new_password']) ? 'has-error' : '' ?>">
-            <label class="col-md-4 control-label" for="new_password">Enter New Password</label>
-            <div class="col-md-5">
-                <input id="new_password" name="new_password" type="password" placeholder="Enter New Password"
-                       class="form-control input-md"
-                       value="<?= !empty($_POST['new_password']) ? htmlspecialchars($_POST['new_password'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : ''; ?>">
-            </div>
-        </div>
-
-        <div class="form-group <?= !empty($error['new_password_confirm']) ? 'has-error' : '' ?>">
-            <label class="col-md-4 control-label" for="new_password_confirm">Confirm New Password</label>
-            <div class="col-md-5">
-                <input id="new_password_confirm" name="new_password_confirm" type="password"
-                       placeholder="Confirm New Password" class="form-control input-md"
-                       value="<?= !empty($_POST['new_password_confirm']) ? htmlspecialchars($_POST['new_password_confirm'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : ''; ?>">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-4 col-sm-10">
-                <button id="submit" type="submit" name="submit" class="btn btn-primary">Reset Password</button>
-                <a href="./login.php">Login</a>
-            </div>
-        </div>
-
-    </form>
-<?php
+include './templates/form_reset.php';
 include './includes/footer.php';
