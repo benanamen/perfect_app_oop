@@ -36,7 +36,7 @@ if (!defined('SECURE_PAGE'))
                         <label for="password">Password <span style="color: #FF0000;">*</span></label>
                         <input id="password"
                                name="password"
-                               type="text"
+                               type="password"
                                class="form-control <?= !empty($error['password']) ? 'is-invalid' : '' ?>"
                                placeholder="Password"
                                value="<?= !empty($_POST['password']) ? htmlspecialchars($_POST['password'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : ''; ?>"
