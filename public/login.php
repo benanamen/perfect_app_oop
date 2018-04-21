@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $user = new AuthenticateUser($pdo);
 
         // Username and/or password didn't match
-        if (!$user->check($_POST['username'], $_POST['password']))
+        if (!$row = $user->check($_POST['username'], $_POST['password']))
         {
             $login_attempt->logFailedAttempt($_POST['username']);
             header("Location: {$_SERVER['SCRIPT_NAME']}?failed_login");
@@ -83,6 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             session_regenerate_id(true);
 
             $_SESSION['login'] = true;
+            $_SESSION['user_id'] = $row['user_id'];
             $_SESSION['first_name'] = $row['first_name'];
             $_SESSION['last_name'] = $row['last_name'];
 
