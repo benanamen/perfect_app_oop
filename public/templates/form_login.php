@@ -23,7 +23,6 @@ if (!defined('SECURE_PAGE'))
                                name="username"
                                type="text"
                                class="form-control <?= !empty($error['username']) ? 'is-invalid' : '' ?>"
-                               placeholder="Username"
                                value="<?= !empty($_POST['username']) ? htmlspecialchars($_POST['username'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : ''; ?>"
                         >
 
@@ -38,7 +37,6 @@ if (!defined('SECURE_PAGE'))
                                name="password"
                                type="password"
                                class="form-control <?= !empty($error['password']) ? 'is-invalid' : '' ?>"
-                               placeholder="Password"
                                value="<?= !empty($_POST['password']) ? htmlspecialchars($_POST['password'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : ''; ?>"
                         >
 
@@ -50,7 +48,9 @@ if (!defined('SECURE_PAGE'))
                     <div class="form-group">
                         <input type="hidden" name="update">
                         <?= !empty($_GET['id']) ? '<input type="hidden" name="id" value="' . htmlspecialchars($_GET['id'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '">' : ''; ?>
-                        <button type="submit" class="btn btn-primary btn-md float-right">Login</button>
+
+                        <button type="submit" class="btn btn-primary btn-md">Login</button>
+                        <a href="forgot.php" class="btn btn-outline-dark float-right">Forgot Password</a>
                     </div>
                     </form>
                 </div>
