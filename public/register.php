@@ -36,8 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 } // End POST
 
 
-logo(IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_ALT);
-
 // ---------------------------------------------------------------------------------------
 // Display Form Errors
 // ---------------------------------------------------------------------------------------
@@ -51,5 +49,6 @@ if ($show_error)
 // Display Form & Footer
 // ---------------------------------------------------------------------------------------
 require './includes/header.php';
+logo(IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_ALT);
 include './templates/form_register.php';
 include './includes/footer.php';
