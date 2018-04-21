@@ -86,7 +86,7 @@ class DisplayActionMessage
         if (isset($_GET['failed_reset']))
         {
             $status = 'error_custom';
-            $message = 'Invalid Code';
+            $message = 'Password Reset Failed';
         }
 
         if (isset($_GET['failed_confirmation']))

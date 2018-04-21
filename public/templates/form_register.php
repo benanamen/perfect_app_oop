@@ -9,7 +9,7 @@ if (!defined('SECURE_PAGE'))
         <div class="col-md-6 offset-md-3">
 
             <!-- form card -->
-            <div class="card card-outline-secondary">
+            <div class="card card-outline-secondary mb-5">
                 <div class="card-header bg-primary text-white">
                     <h3 class="mb-0">Register</h3>
                 </div>
@@ -23,6 +23,7 @@ if (!defined('SECURE_PAGE'))
                                    type="text"
                                    class="form-control <?= !empty($error['first_name']) ? 'is-invalid' : '' ?>"
                                    value="<?= !empty($_POST['first_name']) ? htmlspecialchars($_POST['first_name'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : ''; ?>"
+                                   autofocus
                             >
 
                             <?php if (!empty($error['first_name'])): ?>

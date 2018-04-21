@@ -4,7 +4,6 @@ if (!defined('SECURE_PAGE'))
     die('<h1>Direct File Access Prohibited</h1>');
 }
 ?>
-
 <div class="row">
     <div class="col-md-12">
         <div class="col-md-6 offset-md-3">
@@ -21,7 +20,9 @@ if (!defined('SECURE_PAGE'))
                             <input id="inputResetPasswordEmail"
                                    name="email"
                                    type="email"
-                                   class="form-control <?= !empty($error['email']) ? 'is-invalid' : '' ?>">
+                                   class="form-control <?= !empty($error['email']) ? 'is-invalid' : '' ?>"
+                                   autofocus
+                            >
 
                             <?php if (!empty($error['email'])): ?>
                                 <span class="form-text <?= !empty($error['email']) ? 'invalid-feedback' : '' ?>"><?= $error['email'] ?></span>
