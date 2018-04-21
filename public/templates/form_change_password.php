@@ -9,7 +9,7 @@ if (!defined('SECURE_PAGE'))
         <div class="col-md-6 offset-md-3">
 
             <!-- form card -->
-            <div class="card card-outline-secondary mt-5">
+            <div class="card card-outline-secondary mb-5">
                 <div class="card-header bg-primary text-white">
                     <h3 class="mb-0">Change Password</h3>
                 </div>
@@ -22,8 +22,8 @@ if (!defined('SECURE_PAGE'))
                                    name="password"
                                    type="password"
                                    class="form-control <?= !empty($error['password']) ? 'is-invalid' : '' ?>"
-
                                    value="<?= !empty($_POST['password']) ? htmlspecialchars($_POST['password'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : ''; ?>"
+                                   autofocus
                             >
 
                             <?php if (!empty($error['password'])): ?>
@@ -47,17 +47,17 @@ if (!defined('SECURE_PAGE'))
                         </div>
 
                         <div class="form-group">
-                            <label for="password_confirm">Confirm Password <span
+                            <label for="confirm_new_password">Confirm New Password <span
                                         style="color: #FF0000;">*</span></label>
-                            <input id="password_confirm"
-                                   name="password_confirm"
+                            <input id="confirm_new_password"
+                                   name="confirm_new_password"
                                    type="password"
-                                   class="form-control <?= !empty($error['password_confirm']) ? 'is-invalid' : '' ?>"
-                                   value="<?= !empty($_POST['password_confirm']) ? htmlspecialchars($_POST['password_confirm'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : ''; ?>"
+                                   class="form-control <?= !empty($error['confirm_new_password']) ? 'is-invalid' : '' ?>"
+                                   value="<?= !empty($_POST['confirm_new_password']) ? htmlspecialchars($_POST['confirm_new_password'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : ''; ?>"
                             >
 
-                            <?php if (!empty($error['password_confirm'])): ?>
-                                <span class="form-text <?= !empty($error['password_confirm']) ? 'invalid-feedback' : '' ?>"><?= $error['password_confirm'] ?></span>
+                            <?php if (!empty($error['confirm_new_password'])): ?>
+                                <span class="form-text <?= !empty($error['confirm_new_password']) ? 'invalid-feedback' : '' ?>"><?= $error['confirm_new_password'] ?></span>
                             <?php endif; ?>
                         </div>
 
