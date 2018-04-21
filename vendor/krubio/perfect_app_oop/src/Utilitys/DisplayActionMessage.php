@@ -44,7 +44,7 @@ class DisplayActionMessage
         if (isset($_GET['logout']))
         {
             $status = 'success';
-            $message = 'Successful log out.';
+            $message = 'You have been successfuly logged out.';
         }
 
         if (isset($_GET['confirm']))
