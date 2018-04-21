@@ -1,36 +1,70 @@
-<div class="row">
-    <div class="col-md-12">
-        <div class="col-md-6 offset-md-3">
+<?php
+if (!defined('SECURE_PAGE'))
+{
+    die('<h1>Direct File Access Prohibited</h1>');
+}
 
-            <!-- form card change password -->
-            <div class="card card-outline-secondary mt-5">
-                <div class="card-header bg-primary text-white">
-                    <h3 class="mb-0">Change Password</h3>
-                </div>
-                <div class="card-body">
-                    <form class="form" role="form" autocomplete="off">
-                        <div class="form-group">
-                            <label for="inputPasswordOld">Current Password</label>
-                            <input type="password" class="form-control" id="inputPasswordOld" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPasswordNew">New Password</label>
-                            <input type="password" class="form-control" id="inputPasswordNew" required="">
-                            <span class="form-text small text-muted">The password must be 8-20 characters, and must <em>not</em> contain spaces.</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPasswordNewVerify">Verify New Password</label>
-                            <input type="password" class="form-control" id="inputPasswordNewVerify" required="">
-                            <span class="form-text small text-muted">To confirm, type the new password again.</span>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-md float-right">Save</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- /form card change password -->
+$error = [];
+$show_error = false;
 
-        </div>
-    </div>
-</div>
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+    //------------------------------------------------------------------------------------
+    // Validate Form Input
+    //------------------------------------------------------------------------------------
+
+    if (empty($_POST['password']))
+    {
+        $error['password'] = 'Current Password Required.';
+    }
+
+    if (empty($_POST['new_password']))
+    {
+        $error['new_password'] = 'New Password Required.';
+    }
+
+    if (empty($_POST['confirm_new_password']))
+    {
+        $error['confirm_new_password'] = 'Confirm New Password Required.';
+    }
+    elseif ($_POST['new_password'] != $_POST['confirm_new_password'])
+    {
+        $error['confirm_new_password'] = 'Passwords do not match.';
+    }
+
+    $sql = 'SELECT password FROM users WHERE user_id = ?';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$_SESSION['user_id']]);
+    $row = $stmt->fetch();
+
+    if (!password_verify($_POST['password'], $row['password']))
+    {
+        $error[] = 'Current Password Incorrect';
+    }
+
+    // -----------------------------------------------------------------------------------
+    // Check for errors
+    // -----------------------------------------------------------------------------------
+
+    if ($error)
+    {
+        $show_error = true;
+    }
+    else
+    {
+        $hashed_password = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
+        $sql = 'UPDATE users SET password = ? WHERE user_id = ?';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$hashed_password, $_SESSION['user_id']]);
+        header("Location: ./logout.php");
+        die;
+
+    } // End Else
+} // End POST
+
+if ($show_error)
+{
+    show_form_errors($error);
+}
+
+include './templates/form_change_password.php';
