@@ -14,8 +14,7 @@ if (!defined('SECURE_PAGE'))
                     <h3 class="mb-0">Login</h3>
                 </div>
                 <div class="card-body">
-                    <form role="form" method="post" autocomplete="off"
-                    ">
+                    <form role="form" method="post" autocomplete="off">
 
                     <div class="form-group">
                         <label for="username">Username <span style="color: #FF0000;">*</span></label>
