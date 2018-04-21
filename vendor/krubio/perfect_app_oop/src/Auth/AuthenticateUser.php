@@ -40,7 +40,7 @@ class AuthenticateUser
     public function check($username, $password)
     {
         $stmt = $this->pdo->prepare('
-    SELECT password, first_name, last_name, is_active
+    SELECT user_id, password, first_name, last_name, is_active
     FROM users
     WHERE username = ?
 ');
