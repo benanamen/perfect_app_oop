@@ -14,36 +14,49 @@
 class Token
 {
     /**
-     * Returns CSPRNG hexadecimal ASCII string
-     *
-     * @return string
-     */
-    public function getEncodedToken()
-    {
-        return $this->setEncodedToken($this->setRandomBytes());
-    }
-
-    /**
      * Generates a pseudo-random string of bytes
      *
      * @return string
      */
-    protected function setRandomBytes()
+    public function getRandomBytes()
     {
         return openssl_random_pseudo_bytes(16);
     }
 
     /**
-     * Convert binary data into hexadecimal representation
+     * Convert (Encodes) binary data into hexadecimal representation
      *
      * Returns an ASCII string containing the hexadecimal representation of $randomBytes
      *
      * @param $randomBytes
      * @return string
      */
-    protected function setEncodedToken($randomBytes)
+    public function getEncodedToken($randomBytes)
     {
         return bin2hex($randomBytes);
+    }
+
+    /**
+     * Decodes a hexadecimally encoded binary string
+     *
+     * @param $encoded_token
+     * @return string
+     */
+    public function getDecodedToken($encoded_token)
+    {
+        return hex2bin($encoded_token);
+    }
+
+
+    /**
+     * Generate a hash value
+     *
+     * @param $raw_token
+     * @return string
+     */
+    public function sha256Hash($raw_token)
+    {
+        return hash('sha256', $raw_token);
     }
 }
 
@@ -52,4 +65,16 @@ class Token
 //----------------------------------------------------------------------------
 
 $token = new Token();
-echo $encoded_token = $token->getEncodedToken();
+
+/** Encode token and hash it */
+$raw_token = $token->getRandomBytes();
+
+echo $encoded_token =$token->getEncodedToken($raw_token);// Sent to User
+echo '<br>';
+echo $token_hash = $token->sha256Hash($raw_token);// Stored in DB
+echo '<br>';
+
+
+/** Decode token and hash it */
+$raw_token = $token->getDecodedToken($encoded_token);
+echo $token_hash = $token->sha256Hash($raw_token);// Compare user token to DB token
