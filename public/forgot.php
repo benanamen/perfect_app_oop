@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
         $password_reset_expires = $time->format('Y-m-d H:i:s');
 
-        $sql = "UPDATE users SET pasword_reset_hash=?, password_reset_expires=? WHERE email = ? ";
+        $sql = "UPDATE users SET password_reset_hash=?, password_reset_expires=? WHERE email = ? ";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$token_hash, $password_reset_expires, $_POST['email']]);
 

@@ -1,4 +1,5 @@
 <?php
+
 use PerfectApp\Utilities\DisplayActionMessage;
 
 //----------------------------------------------------------------------------------------
@@ -62,16 +63,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     }
     else
     {
-        // From http://forums.phpfreaks.com/topic/298729-forgotten-password/?hl=%2Bmcrypt_create_iv#entry1524084
-
         // Hash raw token
         $token_hash = hash('sha256', $raw_token);
 
         // Check DB for matching reset key.
-        $sql = "SELECT user_id, email, pasword_reset_hash FROM users WHERE pasword_reset_hash=?";
+        $sql = "SELECT user_id, email, password_reset_hash FROM users WHERE password_reset_hash=?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$token_hash]);
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $row = $stmt->fetch();
 
         //--------------------------------------------------------------------------------
         // No Results - Redirect
@@ -88,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         //--------------------------------------------------------------------------------
 
         $hashed_new_password = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
-        $sql = "UPDATE users SET password = ?, pasword_reset_hash = ?, password_reset_expires = ? WHERE user_id = ?";
+        $sql = "UPDATE users SET password = ?, password_reset_hash = ?, password_reset_expires = ? WHERE user_id = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$hashed_new_password, NULL, NULL, $row['user_id']]);
 

@@ -216,7 +216,7 @@ function logo($img_width, $img_height, $alt_text)
 
 function show_form_errors($error)
 {
-    $error = implode("<br >\n", $error) . "\n";
+    $error = implode("<br>\n", $error) . "\n";
     ?>
     <div class="col-md-6 offset-md-3">
         <div class="error_custom"><?= $error ?></div>
