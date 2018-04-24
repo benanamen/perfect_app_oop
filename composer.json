@@ -17,7 +17,9 @@
   },
   "require": {
     "sentry/sentry": "^1.8",
-    "monolog/monolog": "^1.23"
+    "monolog/monolog": "^1.23",
+    "phpdocumentor/phpdocumentor": "2.*",
+    "vlucas/phpdotenv": "^2.4"
   },
   "require-dev": {
   }
