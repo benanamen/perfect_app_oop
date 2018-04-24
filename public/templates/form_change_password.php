@@ -9,7 +9,7 @@ if (!defined('SECURE_PAGE'))
         <div class="col-md-6 offset-md-3">
 
             <!-- form card -->
-            <div class="card card-outline-secondary mb-5">
+            <div class="card card-outline-secondary mt-5">
                 <div class="card-header bg-primary text-white">
                     <h3 class="mb-0">Change Password</h3>
                 </div>

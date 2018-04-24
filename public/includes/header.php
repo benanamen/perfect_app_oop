@@ -8,6 +8,13 @@ if (!defined('SECURE_PAGE'))
 
 <html lang="en">
 <head>
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,6 +25,7 @@ if (!defined('SECURE_PAGE'))
 
     <!-- Custom styles -->
     <link href="./css/custom.css" rel="stylesheet">
+    <link href="./css/bootstrap-datetimepicker.css" rel="stylesheet" media="screen">
 
     <script src="./js/jquery-1.12.4.js"></script>
 
