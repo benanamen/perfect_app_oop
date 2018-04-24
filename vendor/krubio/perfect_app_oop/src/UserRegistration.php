@@ -18,10 +18,10 @@ interface UserRegistration
     /**
      * @param $firstName
      * @param $lastName
-     * @param $email
+     * @param $to
      * @param $username
      * @param $password
      * @return mixed
      */
-    public function register($firstName, $lastName, $email, $username, $password);
+    public function register($firstName, $lastName, $to, $username, $password);
 }

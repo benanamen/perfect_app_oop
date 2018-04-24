@@ -44,17 +44,17 @@ class StandardUserRegistration implements UserRegistration
     /**
      * @param $firstName
      * @param $lastName
-     * @param $email
+     * @param $to
      * @param $username
      * @param $password
      * @return mixed|void
      */
-    public function register($firstName, $lastName, $email, $username, $password)
+    public function register($firstName, $lastName, $to, $username, $password)
     {
         $raw_token = openssl_random_pseudo_bytes(16);
         $encoded_token = bin2hex($raw_token);
         $token_hash = hash('sha256', $raw_token);
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
         try
         {
             $sql = '
@@ -69,29 +69,19 @@ class StandardUserRegistration implements UserRegistration
               )
             VALUES (?,?,?,?,?,?)';
             $stmt = $this->pdo->prepare($sql);
-            $stmt->execute([
-                  $firstName
-                , $lastName
-                , $email
-                , $username
-                , $hashed_password
-                , $token_hash
-            ]);
+            $stmt->execute([$firstName, $lastName, $to, $username, password_hash($password, PASSWORD_DEFAULT), $token_hash]);
 
-            $subject = 'Confirm Email';
-            $body = "Click to activate account\r\n" . APPLICATION_URL . "/activate.php?k=$encoded_token";
-            $this->mailSubmissionAgent->send($email, $subject, $body, ADMIN_EMAIL_FROM);
+            $message = "Click to activate account\r\n" . APPLICATION_URL . "/activate.php?k=$encoded_token";
+            $this->mailSubmissionAgent->send($to, 'Confirm Email', $message, ADMIN_EMAIL_FROM);
 
             header("Location: ./login.php?confirm");
             die;
         }
-
         catch (\PDOException $e)
         {
             if ($e->getCode() == '23000')
             {
-                $error[] = "Registration Failed";
-                $error[] = "Invalid Username or Email";
+                $error[] = 'Registration Failed<br>Invalid Username or Email';
                 show_form_errors($error);
             }
             else
