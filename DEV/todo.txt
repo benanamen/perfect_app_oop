@@ -5,3 +5,9 @@ jquery-slim.min.js messes up pagination for Datatables. Use regular Jquery
 
 INFO: PhpDocumentor: From the PHPDocumenter Bin Dir Command Prompt run:
 phpdoc.bat -d E:\xampp\htdocs\perfect_app_oop\vendor\krubio\perfect_app_oop\src\ -t E:\xampp\htdocs\perfect_app_oop\docs
+
+
+http://forums.phpfreaks.com/topic/298729-forgotten-password/?hl=%2Bmcrypt_create_iv#entry1524084
+
+
+Work On Responsive Views
