@@ -92,7 +92,7 @@ class DisplayActionMessage
         if (isset($_GET['failed_confirmation']))
         {
             $status = 'error_custom';
-            $message = 'Invalid/Expired Code';
+            $message = 'Invalid/Expired Token';
         }
 
         if ($status)

@@ -40,7 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     }
     else
     {
-
         // Check DB for matching username and password.
         $sql = "SELECT email FROM users WHERE email = ?";
 

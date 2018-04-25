@@ -70,4 +70,3 @@ if (!defined('SECURE_PAGE'))
         </div>
     </div>
 </div>
-
