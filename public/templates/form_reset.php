@@ -22,7 +22,7 @@ if (!defined('SECURE_PAGE'))
                                    name="reset_code"
                                    type="reset_code"
                                    class="form-control <?= !empty($error['reset_code']) ? 'is-invalid' : '' ?>"
-                                   value="<?= !empty($_POST['reset_code']) ? htmlspecialchars($_POST['reset_code'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : ''; ?>"
+                                   value="<?= !empty($reset_code) ? htmlspecialchars($reset_code, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : ''; ?>"
                                    autofocus
                             >
 
