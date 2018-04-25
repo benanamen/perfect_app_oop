@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $token_hash = hash('sha256', $raw_token);
 
         // Check DB for matching reset key.
-        $sql = "SELECT user_id, email, password_reset_hash FROM users WHERE password_reset_hash=?";
+        $sql = "SELECT user_id, email, password_reset_hash FROM users WHERE password_reset_hash=? AND password_reset_expires > NOW()";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$token_hash]);
         $row = $stmt->fetch();
@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
         if (!$row)
         {
-            header("Location: {$_SERVER['SCRIPT_NAME']}?failed_reset");
+            header("Location: {$_SERVER['SCRIPT_NAME']}?failed_confirmation");
             die();
         }
 
@@ -86,21 +86,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         // Update Password
         //--------------------------------------------------------------------------------
 
+        $status = 'failed_reset';
+
         $hashed_new_password = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
         $sql = "UPDATE users SET password = ?, password_reset_hash = ?, password_reset_expires = ? WHERE user_id = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$hashed_new_password, NULL, NULL, $row['user_id']]);
 
-        //--------------------------------------------------------------------------------
-        // Send Reset Email
-        //--------------------------------------------------------------------------------
+        if ($stmt->rowCount())
+        {
+            $status = 'reset';
 
-        $to = $row['email'];
-        $subject = "Password has been reset";
-        $email_body = "Password has been reset";
-        send_email($to, $subject, $email_body, ADMIN_EMAIL_FROM);
+            //--------------------------------------------------------------------------------
+            // Send Reset Email
+            //--------------------------------------------------------------------------------
 
-        header("Location: login.php?reset");
+            $to = $row['email'];
+            $subject = "Password has been reset";
+            $email_body = "Password has been reset";
+            send_email($to, $subject, $email_body, ADMIN_EMAIL_FROM);
+        }
+
+        header("Location: login.php?$status");
         die();
 
     } // End else
