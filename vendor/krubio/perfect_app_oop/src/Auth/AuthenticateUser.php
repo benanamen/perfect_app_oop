@@ -47,19 +47,16 @@ class AuthenticateUser
         $stmt->execute([$username]);
         $row = $stmt->fetch();
 
-        //Bad Username
         if (!$row)
         {
             return false;
         }
 
-        //Bad Password
         if (!password_verify($password, $row['password']))
         {
             return false;
         }
 
-        //Is user active?
         if (!$row['is_active'])
         {
             return false;
