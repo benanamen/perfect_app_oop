@@ -48,23 +48,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         $login_attempt = new SQLLoginAttemptsLog($pdo);
         $user = new AuthenticateUser($pdo);
+        $row = $user->check($_POST['username'], $_POST['password']);
 
         // Username and/or password didn't match
-        if (!$row = $user->check($_POST['username'], $_POST['password']))
+        if (!$row)
         {
             $login_attempt->logFailedAttempt($_POST['username']);
             header("Location: {$_SERVER['SCRIPT_NAME']}?failed_login");
             die;
         }
+        elseif (!$row['is_active'])
+        {
+            $login_attempt->logFailedAttempt($_POST['username']);
+            header("Location: ./login.php?inactive");
+            die;
+        }
         else
         {
-            if (!$user->check($_POST['username'], $_POST['password'])['is_active'])
-            {
-                $login_attempt->logFailedAttempt($_POST['username']);
-                header("Location: ./login.php?inactive");
-                die;
-            }
-
             //----------------------------------------------------------------------------
             // Log successful login attempt & Update Last Login Datetime
             //----------------------------------------------------------------------------
