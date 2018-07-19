@@ -30,7 +30,6 @@ class AuthenticateUser
         $this->pdo = $pdo;
     }
 
-
     /**
      * Checks whether a username/password combination is valid
      * @param string $username
