@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $user = new AuthenticateUser($pdo);
         $row = $user->check($_POST['username'], $_POST['password']);
 
-        // Username and/or password didn't match
+        // Username and/or Password didn't match
         if (!$row)
         {
             $login_attempt->logFailedAttempt($_POST['username']);
