@@ -95,9 +95,7 @@ class MysqlCrud
         }
 
         $query = rtrim($query, ',');
-
         $query .= ') VALUES (';
-
 
         foreach ($fields as $key => $value)
         {
@@ -105,7 +103,6 @@ class MysqlCrud
         }
 
         $query = rtrim($query, ',');
-
         $query .= ')';
 
         $fields = $this->processDates($fields);
@@ -118,19 +115,20 @@ class MysqlCrud
      */
     public function update($fields)
     {
-
-        $id = $fields['id']; // benanamen mod
-        unset($fields['id']);// benanamen mod
+        $id = $fields['id'];
+        unset($fields['id']);
 
         $query = ' UPDATE `' . $this->table . '` SET ';
+
         foreach ($fields as $key => $value)
         {
             $query .= '`' . $key . '` = :' . $key . ',';
         }
+
         $query = rtrim($query, ',');
         $query .= ' WHERE `' . $this->primaryKey . '` = :primaryKey';
-        //Set the :primaryKey variable
-        $fields['primaryKey'] = $id;// benanamen mod
+
+        $fields['primaryKey'] = $id;
         $fields = $this->processDates($fields);
         $this->query($query, $fields);
     }

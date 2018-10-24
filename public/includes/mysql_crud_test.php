@@ -13,6 +13,11 @@ if (isset($_GET['id']))
 {
     $form_data = (array)$db->findById($_GET['id']);
 }
+
+if (isset($_GET['delete']))
+{
+    $db->delete($_GET['delete']);
+}
 ?>
 
 <form method="post">
