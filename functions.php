@@ -214,6 +214,9 @@ function logo($img_width, $img_height, $alt_text)
     <?php
 }
 
+/**
+ * @param $error
+ */
 function show_form_errors($error)
 {
     $error = implode("<br>\n", $error) . "\n";
