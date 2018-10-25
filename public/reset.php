@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
         if (!$row)
         {
-            header("Location: {$_SERVER['SCRIPT_NAME']}?failed_confirmation");
+            header("Location: {$_SERVER['SCRIPT_NAME']}?action=failed_confirmation");
             die();
         }
 
@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             send_email($to, $subject, $email_body, ADMIN_EMAIL_FROM);
         }
 
-        header("Location: login.php?$status");
+        header("Location: login.php?action=$status");
         die();
 
     } // End else

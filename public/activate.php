@@ -45,7 +45,7 @@ else
     $stmt->execute([1, 1, NULL, $token_hash]);
 
     $status = $stmt->rowCount() ? 'verified' : 'failed_confirmation';
-    header("Location: ./login.php?$status");
+    header("Location: ./login.php?action=$status");
     die;
 }
 

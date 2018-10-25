@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
         if (!$row)
         {
-            header("Location: login.php?reset_sent");
+            header("Location: login.php?action=reset_sent");
             die;
         }
 
@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         // Send mail
         send_email("{$row['email']}", $subject, $email_body, ADMIN_EMAIL_FROM);
 
-        header("Location: login.php?reset_sent");
+        header("Location: login.php?action=reset_sent");
         die;
     } // End else
 }

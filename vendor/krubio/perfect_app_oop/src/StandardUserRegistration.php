@@ -74,7 +74,7 @@ class StandardUserRegistration implements UserRegistration
             $message = "Click to activate account\r\n" . APPLICATION_URL . "/activate.php?k=$encoded_token";
             $this->mailSubmissionAgent->send($to, 'Confirm Email', $message, ADMIN_EMAIL_FROM);
 
-            header("Location: ./login.php?confirm");
+            header("Location: ./login.php?action=confirm");
             die;
         }
         catch (\PDOException $e)
