@@ -25,7 +25,6 @@ include './includes/header.php';
 require './config.php';
 include './includes/navbar.php';
 include './includes/display_pages.php';
-
 ?>
 <div class="row">
     <div class="col-md-3">

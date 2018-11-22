@@ -11,3 +11,7 @@ http://forums.phpfreaks.com/topic/298729-forgotten-password/?hl=%2Bmcrypt_create
 
 
 Work On Responsive Views
+
+
+If you are working with php below 7.1, Exception won't work because it does not implement
+the Throwable class.

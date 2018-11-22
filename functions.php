@@ -120,7 +120,7 @@ function custom_exception($exception)
         echo '</pre>';
         echo '</div>';
 
-        echo '<div class="error_custom"><b>Stack Trace:</b>><br>';
+        echo '<div class="error_custom"><b>Stack Trace:</b><br>';
         echo '<pre>';
         echo $exception->getTraceAsString();
         echo '</pre>';
