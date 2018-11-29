@@ -8,7 +8,7 @@ class FormGenerator
     private $elements = []; // array of form elements
     private $output = ''; // dynamic output
     private $elementHeader = ''; // element header
-    private $elementFooter = '<br>'; // element footer
+    private $elementFooter = "\n"; // element footer
 
     private $method = 'post'; // form method
     private $action; // form action
@@ -29,7 +29,8 @@ class FormGenerator
     // create form code
     public function createForm()
     {
-        $this->output .= '<form action="' . $this->action . '" method="' . $this->method . '">';
+        $this->output .= "<form action='$this->action' method='$this->method'>\n";
+
         foreach ($this->elements as $element => $attributes)
         {
             // call the abstract class formElementFactory
