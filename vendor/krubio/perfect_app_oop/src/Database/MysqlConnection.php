@@ -11,7 +11,7 @@ use PDO;
 class MysqlConnection implements DatabaseConnection
 {
     /**
-     * @return mixed|PDO
+     * @return mixed|PDO 
      */
     public function connect()
     {
