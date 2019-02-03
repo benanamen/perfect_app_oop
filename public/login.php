@@ -1,13 +1,12 @@
 <?php
 /**
- * Last Modified <!--%TimeStamp%-->04/02/2018 11:30 AM<!---->
+ * Last Modified <!--%TimeStamp%-->10/24/2018 10:00 PM<!---->
  */
 
 ob_start();// Only needed when Debugging is turned on
 
 use PerfectApp\Auth\AuthenticateUser;
 use PerfectApp\Logging\SQLLoginAttemptsLog;
-use PerfectApp\Utilities\DisplayActionMessage;
 
 //----------------------------------------------------------------------------------------
 // Allow direct access to this page
@@ -54,13 +53,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         if (!$row)
         {
             $login_attempt->logFailedAttempt($_POST['username']);
-            header("Location: {$_SERVER['SCRIPT_NAME']}?failed_login");
+            header("Location: {$_SERVER['SCRIPT_NAME']}?action=failed_login");
             die;
         }
         elseif (!$row['is_active'])
         {
             $login_attempt->logFailedAttempt($_POST['username']);
-            header("Location: ./login.php?inactive");
+            header("Location: ./login.php?action=inactive");
             die;
         }
         else
@@ -100,8 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 include './includes/header.php';
 logo(IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_ALT);
-
-echo DisplayActionMessage::actionMessage();
+echo DISPLAY_ACTION;
 
 // ---------------------------------------------------------------------------------------
 // Display Form Errors

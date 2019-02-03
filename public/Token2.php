@@ -47,4 +47,3 @@ echo '<br>';
 /** Decode token and hash it */
 $token = new Token($token_plain);
 var_dump($token->matches($token_hash)); //Compare user token to DB token
-?>

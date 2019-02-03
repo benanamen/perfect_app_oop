@@ -7,6 +7,8 @@ namespace Composer\Autoload;
 class ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850
 {
     public static $files = array (
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
+        '10a6847eba8a430a134fad89f4a30a26' => __DIR__ . '/..' . '/zendframework/zend-cache/autoload/patternPluginManagerPolyfill.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'fe1bcd0336136e435eaf197895daf81a' => __DIR__ . '/..' . '/nikic/php-parser/lib/bootstrap.php',
         '742b7e606e92b28dd726e835467f413a' => __DIR__ . '/..' . '/herrera-io/json/src/lib/json_version.php',
@@ -34,6 +36,7 @@ class ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Component\\Validator\\' => 28,
             'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\Stopwatch\\' => 28,
@@ -48,8 +51,10 @@ class ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850
         ),
         'P' => 
         array (
+            'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
             'Psr\\Container\\' => 14,
+            'Psr\\Cache\\' => 10,
             'PerfectApp\\' => 11,
         ),
         'M' => 
@@ -121,6 +126,10 @@ class ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
+        'Symfony\\Polyfill\\Ctype\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
         'Symfony\\Component\\Validator\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/validator',
@@ -165,6 +174,10 @@ class ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850
         array (
             0 => __DIR__ . '/..' . '/seld/jsonlint/src/Seld/JsonLint',
         ),
+        'Psr\\SimpleCache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
+        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
@@ -172,6 +185,10 @@ class ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Psr\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
         'PerfectApp\\' => 
         array (
@@ -467,6 +484,7 @@ class ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850
         'JMS\\Serializer\\GenericDeserializationVisitor' => __DIR__ . '/..' . '/jms/serializer/src/JMS/Serializer/GenericDeserializationVisitor.php',
         'JMS\\Serializer\\GenericSerializationVisitor' => __DIR__ . '/..' . '/jms/serializer/src/JMS/Serializer/GenericSerializationVisitor.php',
         'JMS\\Serializer\\GraphNavigator' => __DIR__ . '/..' . '/jms/serializer/src/JMS/Serializer/GraphNavigator.php',
+        'JMS\\Serializer\\GraphNavigatorInterface' => __DIR__ . '/..' . '/jms/serializer/src/JMS/Serializer/GraphNavigatorInterface.php',
         'JMS\\Serializer\\Handler\\ArrayCollectionHandler' => __DIR__ . '/..' . '/jms/serializer/src/JMS/Serializer/Handler/ArrayCollectionHandler.php',
         'JMS\\Serializer\\Handler\\ConstraintViolationHandler' => __DIR__ . '/..' . '/jms/serializer/src/JMS/Serializer/Handler/ConstraintViolationHandler.php',
         'JMS\\Serializer\\Handler\\DateHandler' => __DIR__ . '/..' . '/jms/serializer/src/JMS/Serializer/Handler/DateHandler.php',
@@ -656,13 +674,22 @@ class ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850
         'PerfectApp\\Auth\\AuthenticateUser' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Auth/AuthenticateUser.php',
         'PerfectApp\\Database\\DatabaseConnection' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Database/DatabaseConnection.php',
         'PerfectApp\\Database\\MysqlConnection' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Database/MysqlConnection.php',
+        'PerfectApp\\Database\\MysqlCrud' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Database/MysqlCrud.php',
         'PerfectApp\\Database\\MysqlQuery' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Database/MysqlQuery.php',
         'PerfectApp\\Debug\\HTMLVarDumper' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Debug/HTMLVarDumper.php',
         'PerfectApp\\Debug\\ShowDebugData' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Debug/ShowDebugData.php',
         'PerfectApp\\Debug\\VarDumper' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Debug/VarDumper.php',
         'PerfectApp\\Logging\\LoginLogger' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Logging/LoginLogger.php',
         'PerfectApp\\Logging\\SQLLoginAttemptsLog' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Logging/SQLLoginAttemptsLog.php',
+        'PerfectApp\\Mail\\MailSubmissionAgent' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Mail/MailSubmissionAgent.php',
+        'PerfectApp\\Mail\\PHPMailSubmissionAgent' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Mail/PHPMailSubmissionAgent.php',
+        'PerfectApp\\StandardUserRegistration' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/StandardUserRegistration.php',
+        'PerfectApp\\UserRegistration' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/UserRegistration.php',
         'PerfectApp\\Utilities\\DisplayActionMessage' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Utilitys/DisplayActionMessage.php',
+        'PerfectApp\\Utilitys\\ActionMessages' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Utilitys/ActionMessages.php',
+        'PerfectApp\\Utilitys\\MessageDisplay' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Utilitys/MessageDisplay.php',
+        'PerfectApp\\Utilitys\\MesssageHTML' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Utilitys/MesssageHTML.php',
+        'PerfectApp\\Utilitys\\MesssageJson' => __DIR__ . '/..' . '/krubio/perfect_app_oop/src/Utilitys/MesssageJson.php',
         'PhpCollection\\AbstractCollection' => __DIR__ . '/..' . '/phpcollection/phpcollection/src/PhpCollection/AbstractCollection.php',
         'PhpCollection\\AbstractMap' => __DIR__ . '/..' . '/phpcollection/phpcollection/src/PhpCollection/AbstractMap.php',
         'PhpCollection\\AbstractSequence' => __DIR__ . '/..' . '/phpcollection/phpcollection/src/PhpCollection/AbstractSequence.php',
@@ -686,6 +713,10 @@ class ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850
         'PhpOption\\Option' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/Option.php',
         'PhpOption\\Some' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/Some.php',
         'Pimple' => __DIR__ . '/..' . '/pimple/pimple/lib/Pimple.php',
+        'Psr\\Cache\\CacheException' => __DIR__ . '/..' . '/psr/cache/src/CacheException.php',
+        'Psr\\Cache\\CacheItemInterface' => __DIR__ . '/..' . '/psr/cache/src/CacheItemInterface.php',
+        'Psr\\Cache\\CacheItemPoolInterface' => __DIR__ . '/..' . '/psr/cache/src/CacheItemPoolInterface.php',
+        'Psr\\Cache\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/cache/src/InvalidArgumentException.php',
         'Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
         'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
         'Psr\\Container\\NotFoundExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/NotFoundExceptionInterface.php',
@@ -699,6 +730,9 @@ class ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850
         'Psr\\Log\\NullLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/NullLogger.php',
         'Psr\\Log\\Test\\DummyTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php',
         'Psr\\Log\\Test\\LoggerInterfaceTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php',
+        'Psr\\SimpleCache\\CacheException' => __DIR__ . '/..' . '/psr/simple-cache/src/CacheException.php',
+        'Psr\\SimpleCache\\CacheInterface' => __DIR__ . '/..' . '/psr/simple-cache/src/CacheInterface.php',
+        'Psr\\SimpleCache\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/simple-cache/src/InvalidArgumentException.php',
         'Raven_Autoloader' => __DIR__ . '/..' . '/sentry/sentry/lib/Raven/Autoloader.php',
         'Raven_Breadcrumbs' => __DIR__ . '/..' . '/sentry/sentry/lib/Raven/Breadcrumbs.php',
         'Raven_Breadcrumbs_ErrorHandler' => __DIR__ . '/..' . '/sentry/sentry/lib/Raven/Breadcrumbs/ErrorHandler.php',
@@ -1196,6 +1230,7 @@ class ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850
         'Symfony\\Component\\Validator\\Violation\\ConstraintViolationBuilder' => __DIR__ . '/..' . '/symfony/validator/Violation/ConstraintViolationBuilder.php',
         'Symfony\\Component\\Validator\\Violation\\ConstraintViolationBuilderInterface' => __DIR__ . '/..' . '/symfony/validator/Violation/ConstraintViolationBuilderInterface.php',
         'Symfony\\Component\\Validator\\Violation\\LegacyConstraintViolationBuilder' => __DIR__ . '/..' . '/symfony/validator/Violation/LegacyConstraintViolationBuilder.php',
+        'Symfony\\Polyfill\\Ctype\\Ctype' => __DIR__ . '/..' . '/symfony/polyfill-ctype/Ctype.php',
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
         'Twig\\Cache\\CacheInterface' => __DIR__ . '/..' . '/twig/twig/src/Cache/CacheInterface.php',
         'Twig\\Cache\\FilesystemCache' => __DIR__ . '/..' . '/twig/twig/src/Cache/FilesystemCache.php',
@@ -1580,7 +1615,9 @@ class ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850
         'Zend\\Cache\\Exception\\UnsupportedMethodCallException' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Exception/UnsupportedMethodCallException.php',
         'Zend\\Cache\\Module' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Module.php',
         'Zend\\Cache\\PatternFactory' => __DIR__ . '/..' . '/zendframework/zend-cache/src/PatternFactory.php',
-        'Zend\\Cache\\PatternPluginManager' => __DIR__ . '/..' . '/zendframework/zend-cache/src/PatternPluginManager.php',
+        'Zend\\Cache\\PatternPluginManager\\PatternPluginManagerTrait' => __DIR__ . '/..' . '/zendframework/zend-cache/src/PatternPluginManager/PatternPluginManagerTrait.php',
+        'Zend\\Cache\\PatternPluginManager\\PatternPluginManagerV2Polyfill' => __DIR__ . '/..' . '/zendframework/zend-cache/src/PatternPluginManager/PatternPluginManagerV2Polyfill.php',
+        'Zend\\Cache\\PatternPluginManager\\PatternPluginManagerV3Polyfill' => __DIR__ . '/..' . '/zendframework/zend-cache/src/PatternPluginManager/PatternPluginManagerV3Polyfill.php',
         'Zend\\Cache\\Pattern\\AbstractPattern' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Pattern/AbstractPattern.php',
         'Zend\\Cache\\Pattern\\CallbackCache' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Pattern/CallbackCache.php',
         'Zend\\Cache\\Pattern\\CaptureCache' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Pattern/CaptureCache.php',
@@ -1589,6 +1626,14 @@ class ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850
         'Zend\\Cache\\Pattern\\OutputCache' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Pattern/OutputCache.php',
         'Zend\\Cache\\Pattern\\PatternInterface' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Pattern/PatternInterface.php',
         'Zend\\Cache\\Pattern\\PatternOptions' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Pattern/PatternOptions.php',
+        'Zend\\Cache\\Psr\\CacheItemPool\\CacheException' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Psr/CacheItemPool/CacheException.php',
+        'Zend\\Cache\\Psr\\CacheItemPool\\CacheItem' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Psr/CacheItemPool/CacheItem.php',
+        'Zend\\Cache\\Psr\\CacheItemPool\\CacheItemPoolDecorator' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Psr/CacheItemPool/CacheItemPoolDecorator.php',
+        'Zend\\Cache\\Psr\\CacheItemPool\\InvalidArgumentException' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Psr/CacheItemPool/InvalidArgumentException.php',
+        'Zend\\Cache\\Psr\\SerializationTrait' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Psr/SerializationTrait.php',
+        'Zend\\Cache\\Psr\\SimpleCache\\SimpleCacheDecorator' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Psr/SimpleCache/SimpleCacheDecorator.php',
+        'Zend\\Cache\\Psr\\SimpleCache\\SimpleCacheException' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Psr/SimpleCache/SimpleCacheException.php',
+        'Zend\\Cache\\Psr\\SimpleCache\\SimpleCacheInvalidArgumentException' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Psr/SimpleCache/SimpleCacheInvalidArgumentException.php',
         'Zend\\Cache\\Service\\PatternPluginManagerFactory' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Service/PatternPluginManagerFactory.php',
         'Zend\\Cache\\Service\\PluginManagerLookupTrait' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Service/PluginManagerLookupTrait.php',
         'Zend\\Cache\\Service\\StorageAdapterPluginManagerFactory' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Service/StorageAdapterPluginManagerFactory.php',
@@ -1610,6 +1655,9 @@ class ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850
         'Zend\\Cache\\Storage\\Adapter\\Dba' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Storage/Adapter/Dba.php',
         'Zend\\Cache\\Storage\\Adapter\\DbaIterator' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Storage/Adapter/DbaIterator.php',
         'Zend\\Cache\\Storage\\Adapter\\DbaOptions' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Storage/Adapter/DbaOptions.php',
+        'Zend\\Cache\\Storage\\Adapter\\ExtMongoDb' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Storage/Adapter/ExtMongoDb.php',
+        'Zend\\Cache\\Storage\\Adapter\\ExtMongoDbOptions' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Storage/Adapter/ExtMongoDbOptions.php',
+        'Zend\\Cache\\Storage\\Adapter\\ExtMongoDbResourceManager' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Storage/Adapter/ExtMongoDbResourceManager.php',
         'Zend\\Cache\\Storage\\Adapter\\Filesystem' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Storage/Adapter/Filesystem.php',
         'Zend\\Cache\\Storage\\Adapter\\FilesystemIterator' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Storage/Adapter/FilesystemIterator.php',
         'Zend\\Cache\\Storage\\Adapter\\FilesystemOptions' => __DIR__ . '/..' . '/zendframework/zend-cache/src/Storage/Adapter/FilesystemOptions.php',
@@ -1759,6 +1807,7 @@ class ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850
         'Zend\\Filter\\FilterInterface' => __DIR__ . '/..' . '/zendframework/zend-filter/src/FilterInterface.php',
         'Zend\\Filter\\FilterPluginManager' => __DIR__ . '/..' . '/zendframework/zend-filter/src/FilterPluginManager.php',
         'Zend\\Filter\\FilterPluginManagerFactory' => __DIR__ . '/..' . '/zendframework/zend-filter/src/FilterPluginManagerFactory.php',
+        'Zend\\Filter\\FilterProviderInterface' => __DIR__ . '/..' . '/zendframework/zend-filter/src/FilterProviderInterface.php',
         'Zend\\Filter\\HtmlEntities' => __DIR__ . '/..' . '/zendframework/zend-filter/src/HtmlEntities.php',
         'Zend\\Filter\\Inflector' => __DIR__ . '/..' . '/zendframework/zend-filter/src/Inflector.php',
         'Zend\\Filter\\Int' => __DIR__ . '/..' . '/zendframework/zend-filter/src/Int.php',
@@ -1919,6 +1968,7 @@ class ComposerStaticInit5bd4aee6ddbdc032674b3987568fe850
         'Zend\\Serializer\\Adapter\\MsgPack' => __DIR__ . '/..' . '/zendframework/zend-serializer/src/Adapter/MsgPack.php',
         'Zend\\Serializer\\Adapter\\PhpCode' => __DIR__ . '/..' . '/zendframework/zend-serializer/src/Adapter/PhpCode.php',
         'Zend\\Serializer\\Adapter\\PhpSerialize' => __DIR__ . '/..' . '/zendframework/zend-serializer/src/Adapter/PhpSerialize.php',
+        'Zend\\Serializer\\Adapter\\PhpSerializeOptions' => __DIR__ . '/..' . '/zendframework/zend-serializer/src/Adapter/PhpSerializeOptions.php',
         'Zend\\Serializer\\Adapter\\PythonPickle' => __DIR__ . '/..' . '/zendframework/zend-serializer/src/Adapter/PythonPickle.php',
         'Zend\\Serializer\\Adapter\\PythonPickleOptions' => __DIR__ . '/..' . '/zendframework/zend-serializer/src/Adapter/PythonPickleOptions.php',
         'Zend\\Serializer\\Adapter\\Wddx' => __DIR__ . '/..' . '/zendframework/zend-serializer/src/Adapter/Wddx.php',

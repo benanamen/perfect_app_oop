@@ -46,10 +46,10 @@ class AuthenticateUser
         $stmt->execute([$username]);
         $row = $stmt->fetch();
 
-        if (!$row || !password_verify($password, $row['password']))
+        if ($row && password_verify($password, $row['password']))
         {
-            return false;
+            return $row;
         }
-        return $row;
+        return false;
     }
 }

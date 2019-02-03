@@ -120,7 +120,7 @@ function custom_exception($exception)
         echo '</pre>';
         echo '</div>';
 
-        echo '<div class="error_custom"><b>Stack Trace:</b>><br>';
+        echo '<div class="error_custom"><b>Stack Trace:</b><br>';
         echo '<pre>';
         echo $exception->getTraceAsString();
         echo '</pre>';
@@ -214,6 +214,9 @@ function logo($img_width, $img_height, $alt_text)
     <?php
 }
 
+/**
+ * @param $error
+ */
 function show_form_errors($error)
 {
     $error = implode("<br>\n", $error) . "\n";
