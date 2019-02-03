@@ -2,7 +2,7 @@
 /**
  * Collection of various functions
  *
- * Last Modified <!--%TimeStamp%-->2/23/2018 5:27 PM<!---->
+ * Last Modified <!--%TimeStamp%-->2/2/2019 6:34 PM<!---->
  *
  * @version 2.0.0
  * @author Kevin Rubio
