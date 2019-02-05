@@ -109,8 +109,7 @@ define("ERROR_LOG_PATH", ABSPATH . ".." . DIRECTORY_SEPARATOR . "logs" . DIRECTO
 
 use PerfectApp\Database\MysqlConnection;
 
-$db = new MysqlConnection();
-$pdo = $db->connect();
+$pdo = (new MysqlConnection())->connect();
 
 if (!is_object($pdo))
 {
