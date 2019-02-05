@@ -21,8 +21,8 @@ if (!isset($_SESSION['login']))
 //----------------------------------------------------------------------------------------
 //
 //----------------------------------------------------------------------------------------
-include './includes/header.php';
 require './config.php';
+include './includes/header.php';
 include './includes/navbar.php';
 include './includes/display_pages.php';
 ?>
