@@ -30,7 +30,7 @@ class SQLLoginAttemptsLog implements LoginLogger
     }
 
     /**
-     * Log failed login attmpt
+     * Log failed login attempt
      * @param string $username
      */
     public function logFailedAttempt($username)
@@ -39,7 +39,7 @@ class SQLLoginAttemptsLog implements LoginLogger
     }
 
     /**
-     * Log succesful login attempt
+     * Log successful login attempt
      * @param string $username
      */
     public function logSuccessfulAttempt($username)
