@@ -1,10 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Kevin
- * Date: 2/21/2018
- * Time: 10:04 PM
- */
+<?php declare(strict_types=1);
 
 namespace PerfectApp\Database;
 
