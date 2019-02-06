@@ -148,8 +148,8 @@ define('ACTIONS_ARRAY', [
 ]
 );
 
-use PerfectApp\Utilitys\ActionMessages;
-use PerfectApp\Utilitys\MesssageHTML;
+use PerfectApp\Utilities\ActionMessages;
+use PerfectApp\Utilities\MesssageHTML;
 $messages = new ActionMessages(ACTIONS_ARRAY);
 $action = new MesssageHTML($messages);
 define('DISPLAY_ACTION', $action = !empty($_GET['action']) ? $action->render($_GET['action']) : null);
