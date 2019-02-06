@@ -2,6 +2,8 @@
 
 use PerfectApp\Database\SQLiteConnection;
 
+define("SQLITE_DB_PATH", 'C:\laragon\www\perfectappoop\vendor\krubio\perfect_app_oop\src\Database\dogsDb_PDO.db');
+
 $pdo = (new SQLiteConnection())->connect();
 
 try

@@ -1,4 +1,5 @@
-<?php
+<?php declare (strict_types=1);
+
 /*
 Revision of my Token Class by kicken
 https://forums.phpfreaks.com/topic/307191-oop-token-generator/
