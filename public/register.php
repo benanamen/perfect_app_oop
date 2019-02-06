@@ -1,4 +1,5 @@
-<?php
+<?php declare (strict_types=1);
+
 /**
  * Last Modified <!--%TimeStamp%-->4/2/2018 10:030 PM<!---->
  */

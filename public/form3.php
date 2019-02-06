@@ -1,4 +1,5 @@
-<?php
+<?php declare (strict_types=1);
+
 define('SECURE_PAGE', true);
 include './includes/header.php';
 ?>

@@ -1,4 +1,4 @@
-<?php
+<?php declare (strict_types=1);
 
 use PerfectApp\Utilities\DisplayActionMessage;
 
@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 include './includes/header.php';
 logo(IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_ALT);
-echo DisplayActionMessage::actionMessage();
+echo DISPLAY_ACTION;
 
 // ---------------------------------------------------------------------------------------
 // Display Form Errors

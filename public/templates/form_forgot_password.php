@@ -1,4 +1,5 @@
-<?php
+<?php declare (strict_types=1);
+
 if (!defined('SECURE_PAGE'))
 {
     die('<h1>Direct File Access Prohibited</h1>');

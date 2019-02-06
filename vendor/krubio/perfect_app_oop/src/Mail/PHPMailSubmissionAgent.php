@@ -1,14 +1,11 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Kevin
- * Date: 4/2/2018
- * Time: 8:27 PM
- */
+<?php declare(strict_types=1);
 
 namespace PerfectApp\Mail;
 
-
+/**
+ * Class PHPMailSubmissionAgent
+ * @package PerfectApp\Mail
+ */
 class PHPMailSubmissionAgent implements MailSubmissionAgent
 {
     /**

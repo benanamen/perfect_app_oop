@@ -1,4 +1,5 @@
-<?php
+<?php declare (strict_types=1);
+
 /**
  * Validate Add/Edit Form Data
  * Last Modified <!--%TimeStamp%-->1/14/2017 9:04 PM<!---->

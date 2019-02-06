@@ -1,10 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Kevin
- * Date: 4/1/2018
- * Time: 7:06 PM
- */
+<?php declare(strict_types=1);
 
 namespace PerfectApp\Auth;
 
