@@ -73,4 +73,3 @@ include '../includes/header.php';
     </div><!-- /.row -->
 <?php
 include '../includes/footer.php';
-?>
