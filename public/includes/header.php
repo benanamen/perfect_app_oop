@@ -1,4 +1,5 @@
-<?php
+<?php declare (strict_types=1);
+
 if (!defined('SECURE_PAGE'))
 {
     die('<h1>Direct File Access Prohibited</h1>');
@@ -20,7 +21,10 @@ if (!defined('SECURE_PAGE'))
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="./bootstrap/4.0.0/css/bootstrap.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!--    <link rel="stylesheet" type="text/css" href="./bootstrap/4.0.0/css/bootstrap.css">-->
     <link rel="stylesheet" type="text/css" href="./css/dataTables.bootstrap4.min.css">
 
     <!-- Custom styles -->
@@ -41,7 +45,7 @@ if (!defined('SECURE_PAGE'))
         });
     </script>
 
-    <title></title>
+    <title><?= APP_NAME ?></title>
 </head>
 
 <body>
