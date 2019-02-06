@@ -2,9 +2,9 @@
 
 require './config.php';
 
-use PerfectApp\Utilitys\ActionMessages;
-use PerfectApp\Utilitys\MesssageHTML;
-use PerfectApp\Utilitys\MesssageJson;
+use PerfectApp\Utilities\ActionMessages;
+use PerfectApp\Utilities\MesssageHTML;
+use PerfectApp\Utilities\MesssageJson;
 
 $actions_array = [
       'insert' => ['status' => 'success', 'message' => 'Record Inserted']
