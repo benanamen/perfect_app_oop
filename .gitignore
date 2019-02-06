@@ -1,5 +1,5 @@
-/vendor/
-!/vendor/krubio
 /.idea/
 /logs/error.log
 /DEV/
+/vendor/
+!/vendor/krubio/
