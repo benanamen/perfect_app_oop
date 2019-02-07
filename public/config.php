@@ -45,7 +45,7 @@ define('DB_NAME', 'perfect_app'); // Database Name
 define('DB_USER', 'root'); // Database Username
 define('DB_PASSWORD', ''); // Database Password
 define('DB_HOST', 'localhost'); // Database Hostname
-define('DB_CHARSET', 'utf8'); // Database Charset
+define('DB_CHARSET', 'utf8mb4'); // Database Charset
 
 //----------------------------------------------------------------------------------------
 // Dates & Times
