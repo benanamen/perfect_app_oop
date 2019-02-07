@@ -2,7 +2,6 @@
 
 namespace PerfectApp\Database;
 
-use PDO;
 
 /**
  * Class MysqlCrud
