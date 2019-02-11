@@ -32,7 +32,8 @@ body {
 
 .error_custom {
     color: #D8000C;
-    background: #FFBABA url('../images/cancel.png');
+    background-color: #FFBABA;
+    background-image: url('../images/cancel.png');
 }
 
 /* Dropdown on Hover */
