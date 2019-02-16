@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-require './config.php';
+require '../config.php';
 
 use PerfectApp\Utilities\ActionMessages;
 use PerfectApp\Utilities\MesssageHTML;

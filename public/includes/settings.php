@@ -61,7 +61,7 @@ if (!defined('SECURE_PAGE'))
         </tr>
         <tr>
             <td>Absolute Path</td>
-            <td><?= ABSPATH ?></td>
+            <td><?= ROOT_DIR ?></td>
         </tr>
         <tr>
             <td>Error Log Path</td>

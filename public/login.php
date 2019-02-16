@@ -11,7 +11,7 @@ use PerfectApp\Logging\SQLLoginAttemptsLog;
 //----------------------------------------------------------------------------------------
 
 define('SECURE_PAGE', true);
-require('./config.php');
+require('..' . DIRECTORY_SEPARATOR . 'config.php');
 
 $error = [];
 $show_error = false;
