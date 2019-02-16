@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+require '../config.php';
+
 use PerfectApp\Database\SQLiteConnection;
 
 define("SQLITE_DB_PATH", 'C:\laragon\www\perfectappoop\vendor\krubio\perfect_app_oop\src\Database\dogsDb_PDO.db');
