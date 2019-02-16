@@ -14,8 +14,9 @@
 namespace PerfectApp\Debug;
 
 /** Required files. */
-require '../functions.php';
-require "../vendor/autoload.php";
+define('ROOT_DIR', realpath('..' . DIRECTORY_SEPARATOR));
+require ROOT_DIR . DIRECTORY_SEPARATOR . 'functions.php';
+require ROOT_DIR . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 
 // Custom exception handler function (functions.php)
 set_exception_handler('custom_exception');
@@ -99,10 +100,8 @@ if (version_compare(PHP_VERSION, '7.1') < 0)
     die('Your PHP installation is too old. Requires at least PHP 7.1');
 }
 
-define('ABSPATH', __dir__ . DIRECTORY_SEPARATOR);
-
 // Path To error log
-define("ERROR_LOG_PATH", ABSPATH . ".." . DIRECTORY_SEPARATOR . "logs" . DIRECTORY_SEPARATOR . "error.log");
+define("ERROR_LOG_PATH", ROOT_DIR . DIRECTORY_SEPARATOR . "logs" . DIRECTORY_SEPARATOR . "error.log");
 
 //----------------------------------------------------------------------------------------
 // Create PDO DB Connection
