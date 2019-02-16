@@ -8,7 +8,7 @@ use PerfectApp\Mail\PHPMailSubmissionAgent;
 use PerfectApp\StandardUserRegistration;
 
 define('SECURE_PAGE', true);
-require('./config.php');
+require('../config.php');
 
 $show_error = false;
 

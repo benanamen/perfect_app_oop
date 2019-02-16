@@ -1,14 +1,12 @@
 <?php declare (strict_types=1);
 
-use PerfectApp\Utilities\ActionMessages;
-
 //----------------------------------------------------------------------------------------
 // Allow direct access to this page
 //----------------------------------------------------------------------------------------
 
 define('SECURE_PAGE', true);
 
-require('./config.php');
+require('../config.php');
 
 $error = [];
 $show_error = false;
@@ -134,7 +132,7 @@ if ($show_error)
 // Display Form
 // ---------------------------------------------------------------------------------------
 
-$reset_code = isset($_GET['k']) ? $_GET['k'] : $reset_code = isset($_POST['reset_code']) ? $_POST['reset_code'] : '';
+$reset_code = $_POST['reset_code'] ?? $_GET['k'] ?? null;
 
 include './templates/form_reset.php';
 include './includes/footer.php';

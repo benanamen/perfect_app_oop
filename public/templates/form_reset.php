@@ -21,7 +21,7 @@ if (!defined('SECURE_PAGE'))
                             <label for="reset_code">Reset Code <span style="color: #FF0000;">*</span></label>
                             <input id="reset_code"
                                    name="reset_code"
-                                   type="reset_code"
+                                   type="text"
                                    class="form-control <?= !empty($error['reset_code']) ? 'is-invalid' : '' ?>"
                                    value="<?= !empty($reset_code) ? htmlspecialchars($reset_code, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : ''; ?>"
                                    autofocus

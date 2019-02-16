@@ -5,7 +5,7 @@
 //----------------------------------------------------------------------------------------
 
 define('SECURE_PAGE', true);
-require('./config.php');
+require('../config.php');
 
 $error = [];
 $show_error = false;
