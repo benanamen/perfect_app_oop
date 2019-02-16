@@ -3,29 +3,12 @@
  * Displays Login Attempt Data
  */
 
-require "../vendor/autoload.php";
-require '../config/database.php';
+define('SECURE_PAGE', true);
 require '../config.php';
 
-use PerfectApp\Database\MysqlConnection;
 use PerfectApp\Database\MysqlQuery;
 
-//----------------------------------------------------------------------------------------
-// Create PDO DB Connection
-//----------------------------------------------------------------------------------------
-$db = new MysqlConnection();
-$pdo = $db->connect();
-
-if (!is_object($pdo)) {
-    return false;
-}
-
 $loginAttempts = new MysqlQuery($pdo);
-
-
-/*$loginAttempts = new MysqlQuery();
-$loginAttempts->connect();*/
-
 
 include '../includes/header.php';
 ?>
