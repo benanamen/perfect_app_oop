@@ -6,6 +6,7 @@
 
 ob_start();// Only needed when Debugging is turned on
 
+use PerfectApp\Database\PdoCrud;
 use PerfectApp\Auth\AuthenticateUser;
 use PerfectApp\Logging\SQLLoginAttemptsLog;
 
@@ -47,14 +48,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     else
     {
         $login_attempt = new SQLLoginAttemptsLog($pdo);
-        $user = new AuthenticateUser($pdo);
-        $row = $user->check($_POST['username'], $_POST['password']);
+        $crud = new PdoCrud($pdo, 'users', 'username');
+        $user = new AuthenticateUser($pdo, $crud);
+
+        $sql = 'SELECT user_id, password, first_name, last_name, is_active, is_email_verified
+    FROM users
+    WHERE username = ?';
+
+        $username = [$_POST['username']];
+        $row = $user->check($sql, $username, $_POST['password']);
 
         // Username and/or Password didn't match
         if (!$row)
         {
             $login_attempt->logFailedAttempt($_POST['username']);
             header("Location: {$_SERVER['SCRIPT_NAME']}?action=failed_login");
+            die;
+        }
+        elseif (!$row['is_email_verified'])
+        {
+            $login_attempt->logFailedAttempt($_POST['username']);
+            header("Location: ./login.php?action=noconfirm");
             die;
         }
         elseif (!$row['is_active'])

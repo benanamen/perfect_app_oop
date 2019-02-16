@@ -3,6 +3,7 @@
 namespace PerfectApp\Auth;
 
 use PDO;
+use PerfectApp\Database\PdoCrud;
 
 /**
  * Class AuthenticateUser
@@ -11,6 +12,10 @@ use PDO;
 class AuthenticateUser
 {
     /**
+     * @var PdoCrud
+     */
+    public $pdoCrud;
+    /**
      * @var PDO the connection to the underlying database
      */
     protected $pdo;
@@ -18,26 +23,24 @@ class AuthenticateUser
     /**
      * AuthenticateUser constructor.
      * @param PDO $pdo
+     * @param  pdoCrud $pdoCrud
      */
-    public function __construct(PDO $pdo)
+    public function __construct(PDO $pdo, PdoCrud $pdoCrud)
     {
         $this->pdo = $pdo;
+        $this->pdoCrud = $pdoCrud;
     }
 
     /**
      * Checks whether a username/password combination is valid
-     * @param string $username
-     * @param string $password
+     * @param $sql string
+     * @param $username array
+     * @param $password string
      * @return bool|mixed
      */
-    public function check($username, $password)
+    public function check($sql, $username, $password)
     {
-        $stmt = $this->pdo->prepare('
-    SELECT user_id, password, first_name, last_name, is_active
-    FROM users
-    WHERE username = ?
-');
-        $stmt->execute([$username]);
+        $stmt = $this->pdoCrud->query($sql, $username);
         $row = $stmt->fetch();
 
         if ($row && password_verify($password, $row['password']))

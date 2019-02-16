@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-use PerfectApp\Database\MysqlCrud;
+use PerfectApp\Database\PdoCrud;
 
-$db = new MysqlCrud($pdo, 'crud_test', 'user_id');
+$db = new PdoCrud($pdo, 'crud_test', 'user_id');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
