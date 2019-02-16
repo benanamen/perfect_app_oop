@@ -138,6 +138,7 @@ define('ACTIONS_ARRAY', [
     , 'reset' => ['status' => 'success', 'message' => 'Your password has been reset.']
     , 'logout' => ['status' => 'success', 'message' => 'You have been successfully logged out.']
     , 'confirm' => ['status' => 'success', 'message' => 'Email confirmation instructions have been sent. Check your spam folder.']
+    , 'noconfirm' => ['status' => 'error_custom', 'message' => 'Email has not been confirmed.']
     , 'verified' => ['status' => 'success', 'message' => 'Your email has been verified. You may login now.']
     , 'registered' => ['status' => 'success', 'message' => 'Email sent with instructions to confirm your email.']
     , 'reset_sent' => ['status' => 'info', 'message' => 'If your email is in our system you will receive reset instructions.']
