@@ -1,13 +1,9 @@
 <?php declare (strict_types=1);
 
-/**
- * Last Modified <!--%TimeStamp%-->10/24/2018 10:00 PM<!---->
- */
-
 ob_start();// Only needed when Debugging is turned on
 
-use PerfectApp\Database\PdoCrud;
 use PerfectApp\Auth\AuthenticateUser;
+use PerfectApp\Database\PdoCrud;
 use PerfectApp\Logging\SQLLoginAttemptsLog;
 
 //----------------------------------------------------------------------------------------
