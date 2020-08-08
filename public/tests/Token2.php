@@ -38,7 +38,7 @@ class Token
 }
 
 
-$token = Token::generate();
+$token = Token::generate();//KR this is same output as $token->getToken()
 echo $token_plain = $token->getToken(); // Sent to User
 echo '<br>';
 echo $token_hash = $token->getHash(); //Stored in DB
