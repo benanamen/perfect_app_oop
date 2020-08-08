@@ -1,4 +1,4 @@
-<?php declare (strict_types=1);
+<?php declare(strict_types=1);
 
 /**
  * Application Configuration
@@ -69,8 +69,7 @@ define("LOG_ERROR", true); // Log errors to file
 // Debugging
 //----------------------------------------------------------------------------------------
 
-define("DEBUG", true); // Toggle Debugging
-
+define("DEBUG", false); // Toggle Debugging
 define("SHOW_DEBUG_PARAMS", DEBUG); // Display Sql & Sql Parameters
 define("SHOW_SESSION_DATA", DEBUG); // Display Session Data
 define("SHOW_POST_DATA", DEBUG); // Display Post Data
@@ -78,9 +77,16 @@ define("SHOW_GET_DATA", DEBUG); // Display Get Data
 define("SHOW_COOKIE_DATA", false); // Display Cookie Data
 define("SHOW_REQUEST_DATA", false); // Display Request Data
 
+SHOW_POST_DATA ?  $var['POST'] = $_POST : false;
+SHOW_GET_DATA  ? $var['GET'] =  $_GET  : false;
+SHOW_COOKIE_DATA ?  $var['COOKIE'] = $_COOKIE : false;
+SHOW_REQUEST_DATA ? $var['REQUEST'] = $_REQUEST : false;
+SHOW_SESSION_DATA && !empty($_SESSION) ?  $var['SESSION'] = $_SESSION : false;
+
 if (DEBUG)
 {
-    ShowDebugData::displayDebugData();
+    $varDumper = new HTMLVarDumper;
+    ShowDebugData::displayDebugData($varDumper, $var);
 }
 
 //----------------------------------------------------------------------------------------
@@ -131,21 +137,21 @@ $error_handler->registerShutdownFunction();
 //----------------------------------------------------------------------------------------
 
 define('ACTIONS_ARRAY', [
-    'insert' => ['status' => 'success', 'message' => 'Record Inserted']
-    , 'update' => ['status' => 'success', 'message' => 'Record Updated']
-    , 'delete' => ['status' => 'success', 'message' => 'Record Deleted']
-    , 'reset' => ['status' => 'success', 'message' => 'Your password has been reset.']
-    , 'logout' => ['status' => 'success', 'message' => 'You have been successfully logged out.']
-    , 'confirm' => ['status' => 'success', 'message' => 'Email confirmation instructions have been sent. Check your spam folder.']
-    , 'noconfirm' => ['status' => 'error_custom', 'message' => 'Email has not been confirmed.']
-    , 'verified' => ['status' => 'success', 'message' => 'Your email has been verified. You may login now.']
-    , 'registered' => ['status' => 'success', 'message' => 'Email sent with instructions to confirm your email.']
-    , 'reset_sent' => ['status' => 'info', 'message' => 'If your email is in our system you will receive reset instructions.']
-    , 'failed_login' => ['status' => 'error_custom', 'message' => 'Invalid Login']
-    , 'inactive' => ['status' => 'error_custom', 'message' => 'Inactive Account']
-    , 'failed_reset' => ['status' => 'error_custom', 'message' => 'Password Reset Failed']
-    , 'failed_confirmation' => ['status' => 'error_custom', 'message' => 'Invalid/Expired Token']
-]
+          'insert' => ['status' => 'success', 'message' => 'Record Inserted']
+        , 'update' => ['status' => 'success', 'message' => 'Record Updated']
+        , 'delete' => ['status' => 'success', 'message' => 'Record Deleted']
+        , 'reset' => ['status' => 'success', 'message' => 'Your password has been reset.']
+        , 'logout' => ['status' => 'success', 'message' => 'You have been successfully logged out.']
+        , 'confirm' => ['status' => 'success', 'message' => 'Email confirmation instructions have been sent. Check your spam folder.']
+        , 'noconfirm' => ['status' => 'error_custom', 'message' => 'Email has not been confirmed.']
+        , 'verified' => ['status' => 'success', 'message' => 'Your email has been verified. You may login now.']
+        , 'registered' => ['status' => 'success', 'message' => 'Email sent with instructions to confirm your email.']
+        , 'reset_sent' => ['status' => 'info', 'message' => 'If your email is in our system you will receive reset instructions.']
+        , 'failed_login' => ['status' => 'error_custom', 'message' => 'Invalid Login']
+        , 'inactive' => ['status' => 'error_custom', 'message' => 'Inactive Account']
+        , 'failed_reset' => ['status' => 'error_custom', 'message' => 'Password Reset Failed']
+        , 'failed_confirmation' => ['status' => 'error_custom', 'message' => 'Invalid/Expired Token']
+    ]
 );
 
 use PerfectApp\Utilities\ActionMessages;

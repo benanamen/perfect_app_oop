@@ -30,7 +30,7 @@ if (!defined('SECURE_PAGE'))
 
 <h2>System Requirements</h2>
 <ul>
-    <li>Php version < 7.1 </li>
+    <li>Php version &lt; 7.1</li>
     <li>Mysql</li>
     <li>PDO</li>
 </ul>

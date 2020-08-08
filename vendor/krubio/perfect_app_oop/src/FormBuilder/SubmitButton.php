@@ -1,4 +1,4 @@
-<?php declare (strict_types=1);
+<?php declare(strict_types=1);
 
 namespace PerfectApp\FormBuilder;
 
@@ -12,12 +12,16 @@ class SubmitButton
         {
             throw new \InvalidArgumentException('Invalid number of attributes');
         }
-        $this->html = '<input type="submit" ';
+
+        $this->html = "<div class='form-group row'>\n";
+        $this->html .= "<div class='col-sm-10 offset-sm-2'>\n";
+        $this->html .= '<input type="submit" ';
         foreach ($attributes as $attribute => $value)
         {
             $this->html .= $attribute . "='$value' ";
         }
-        $this->html .= '>';
+        $this->html .= ">\n";
+        $this->html .= "</div>\n</div>";
     }
 
     public function getHTML()

@@ -1,4 +1,4 @@
-<?php declare (strict_types=1);
+<?php declare(strict_types=1);
 
 namespace PerfectApp\FormBuilder;
 
@@ -12,7 +12,7 @@ class PasswordInput
         {
             throw new \InvalidArgumentException('Invalid number of attributes');
         }
-        $this->html = '<input type="password" ';
+        $this->html .= '<input  class="form-control" type="password" ';
         foreach ($attributes as $attribute => $value)
         {
             $this->html .= $attribute . "='$value' ";

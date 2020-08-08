@@ -17,6 +17,7 @@
   },
   "require": {
     "ext-pdo": "*",
+    "php": "7.1.* || 7.2.*",
     "sentry/sentry": "^1.8",
     "monolog/monolog": "^1.23",
     "phpdocumentor/phpdocumentor": "2.*",

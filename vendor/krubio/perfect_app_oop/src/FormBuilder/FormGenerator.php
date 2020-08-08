@@ -1,4 +1,4 @@
-<?php declare (strict_types=1);
+<?php declare(strict_types=1);
 
 namespace PerfectApp\FormBuilder;
 
@@ -23,7 +23,7 @@ class FormGenerator
         // data member initialization
         $this->elements = $elements;
 
-        $this->action = $_SERVER['SCRIPT_NAME'];
+        $this->action = $_SERVER['SCRIPT_NAME'] . '?p=' . $_GET['p'];
     }
 
     // create form code
@@ -31,12 +31,25 @@ class FormGenerator
     {
         $this->output .= "<form action='$this->action' method='$this->method'>\n";
 
+        $this->output .= "<div class='form-group row'>\n";
+
         foreach ($this->elements as $element => $attributes)
         {
+            if ($element != 'label' && $element != 'submitbutton')
+            {
+                $this->output .= "<div class='col-sm-10'>\n";
+            }
+
             // call the abstract class formElementFactory
             $this->output .= $this->elementHeader . formElementFactory::createElement($element, $attributes) . $this->elementFooter;
+
+            if ($element != 'label' && $element != 'submitbutton')
+            {
+                $this->output .= "</div>\n</div>\n";
+            }
         }
-        $this->output .= '</form>';
+
+        $this->output .= "</form>\n";
     }
 
     // add form part
